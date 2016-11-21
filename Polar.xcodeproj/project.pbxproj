@@ -1,0 +1,448 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EE2170341DC935080082D8FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2170331DC935080082D8FD /* AppDelegate.swift */; };
+		EE2170361DC935080082D8FD /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2170351DC935080082D8FD /* CameraViewController.swift */; };
+		EE2170391DC935080082D8FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE2170371DC935080082D8FD /* Main.storyboard */; };
+		EE21703C1DC935080082D8FD /* Polar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE21703A1DC935080082D8FD /* Polar.xcdatamodeld */; };
+		EE21703E1DC935080082D8FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE21703D1DC935080082D8FD /* Assets.xcassets */; };
+		EE2170411DC935080082D8FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE21703F1DC935080082D8FD /* LaunchScreen.storyboard */; };
+		EE21704A1DCC8FB60082D8FD /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2170491DCC8FB60082D8FD /* GalleryViewController.swift */; };
+		EE21704F1DCC90240082D8FD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE21704C1DCC90240082D8FD /* AVFoundation.framework */; };
+		EE2170501DCC90240082D8FD /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE21704D1DCC90240082D8FD /* AVKit.framework */; };
+		EE2170511DCC90240082D8FD /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE21704E1DCC90240082D8FD /* CoreImage.framework */; };
+		EE4010B81DE38D3F00D98D95 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4010B71DE38D3F00D98D95 /* EditorViewController.swift */; };
+		EE4010BA1DE38D8900D98D95 /* GalleryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EE2170301DC935080082D8FD /* Polar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Polar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE2170331DC935080082D8FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EE2170351DC935080082D8FD /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		EE2170381DC935080082D8FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EE21703B1DC935080082D8FD /* Polar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Polar.xcdatamodel; sourceTree = "<group>"; };
+		EE21703D1DC935080082D8FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EE2170401DC935080082D8FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EE2170421DC935080082D8FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE2170491DCC8FB60082D8FD /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		EE21704C1DCC90240082D8FD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		EE21704D1DCC90240082D8FD /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		EE21704E1DCC90240082D8FD /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		EE4010B71DE38D3F00D98D95 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
+		EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE21702D1DC935080082D8FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE21704F1DCC90240082D8FD /* AVFoundation.framework in Frameworks */,
+				EE2170501DCC90240082D8FD /* AVKit.framework in Frameworks */,
+				EE2170511DCC90240082D8FD /* CoreImage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE2170271DC935080082D8FD = {
+			isa = PBXGroup;
+			children = (
+				EE2170321DC935080082D8FD /* Polar */,
+				EE2170311DC935080082D8FD /* Products */,
+				EE21704B1DCC90240082D8FD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EE2170311DC935080082D8FD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE2170301DC935080082D8FD /* Polar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE2170321DC935080082D8FD /* Polar */ = {
+			isa = PBXGroup;
+			children = (
+				EE4010B21DE38CA800D98D95 /* Resources */,
+				EE2170331DC935080082D8FD /* AppDelegate.swift */,
+				EE4010B11DE38C9E00D98D95 /* Classes */,
+			);
+			path = Polar;
+			sourceTree = "<group>";
+		};
+		EE2170481DCC8F890082D8FD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EE2170351DC935080082D8FD /* CameraViewController.swift */,
+				EE2170491DCC8FB60082D8FD /* GalleryViewController.swift */,
+				EE4010B71DE38D3F00D98D95 /* EditorViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		EE21704B1DCC90240082D8FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE21704C1DCC90240082D8FD /* AVFoundation.framework */,
+				EE21704D1DCC90240082D8FD /* AVKit.framework */,
+				EE21704E1DCC90240082D8FD /* CoreImage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE4010AD1DE38C6F00D98D95 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EE4010AE1DE38C7800D98D95 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		EE4010AF1DE38C8800D98D95 /* Panes */ = {
+			isa = PBXGroup;
+			children = (
+				EE4010AE1DE38C7800D98D95 /* View */,
+				EE4010AD1DE38C6F00D98D95 /* Model */,
+				EE2170481DCC8F890082D8FD /* Controllers */,
+			);
+			name = Panes;
+			sourceTree = "<group>";
+		};
+		EE4010B01DE38C9100D98D95 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				EE4010B31DE38CDC00D98D95 /* Classes */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		EE4010B11DE38C9E00D98D95 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EE4010B01DE38C9100D98D95 /* Base */,
+				EE4010AF1DE38C8800D98D95 /* Panes */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		EE4010B21DE38CA800D98D95 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EE2170371DC935080082D8FD /* Main.storyboard */,
+				EE21703F1DC935080082D8FD /* LaunchScreen.storyboard */,
+				EE21703D1DC935080082D8FD /* Assets.xcassets */,
+				EE2170421DC935080082D8FD /* Info.plist */,
+				EE21703A1DC935080082D8FD /* Polar.xcdatamodeld */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		EE4010B31DE38CDC00D98D95 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EE4010B61DE38CFC00D98D95 /* Controllers */,
+				EE4010B51DE38CF500D98D95 /* View */,
+				EE4010B41DE38CED00D98D95 /* Model */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		EE4010B41DE38CED00D98D95 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EE4010B51DE38CF500D98D95 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		EE4010B61DE38CFC00D98D95 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE21702F1DC935080082D8FD /* Polar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE2170451DC935080082D8FD /* Build configuration list for PBXNativeTarget "Polar" */;
+			buildPhases = (
+				EE21702C1DC935080082D8FD /* Sources */,
+				EE21702D1DC935080082D8FD /* Frameworks */,
+				EE21702E1DC935080082D8FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Polar;
+			productName = Polar;
+			productReference = EE2170301DC935080082D8FD /* Polar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE2170281DC935080082D8FD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Игорь Талов";
+				TargetAttributes = {
+					EE21702F1DC935080082D8FD = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = EE21702B1DC935080082D8FD /* Build configuration list for PBXProject "Polar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EE2170271DC935080082D8FD;
+			productRefGroup = EE2170311DC935080082D8FD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE21702F1DC935080082D8FD /* Polar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE21702E1DC935080082D8FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE2170411DC935080082D8FD /* LaunchScreen.storyboard in Resources */,
+				EE21703E1DC935080082D8FD /* Assets.xcassets in Resources */,
+				EE2170391DC935080082D8FD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE21702C1DC935080082D8FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE2170361DC935080082D8FD /* CameraViewController.swift in Sources */,
+				EE21704A1DCC8FB60082D8FD /* GalleryViewController.swift in Sources */,
+				EE21703C1DC935080082D8FD /* Polar.xcdatamodeld in Sources */,
+				EE4010B81DE38D3F00D98D95 /* EditorViewController.swift in Sources */,
+				EE2170341DC935080082D8FD /* AppDelegate.swift in Sources */,
+				EE4010BA1DE38D8900D98D95 /* GalleryViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EE2170371DC935080082D8FD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE2170381DC935080082D8FD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EE21703F1DC935080082D8FD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE2170401DC935080082D8FD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EE2170431DC935080082D8FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EE2170441DC935080082D8FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE2170461DC935080082D8FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Polar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SealDeveloper.Polar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		EE2170471DC935080082D8FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Polar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SealDeveloper.Polar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE21702B1DC935080082D8FD /* Build configuration list for PBXProject "Polar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE2170431DC935080082D8FD /* Debug */,
+				EE2170441DC935080082D8FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE2170451DC935080082D8FD /* Build configuration list for PBXNativeTarget "Polar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE2170461DC935080082D8FD /* Debug */,
+				EE2170471DC935080082D8FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EE21703A1DC935080082D8FD /* Polar.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EE21703B1DC935080082D8FD /* Polar.xcdatamodel */,
+			);
+			currentVersion = EE21703B1DC935080082D8FD /* Polar.xcdatamodel */;
+			path = Polar.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EE2170281DC935080082D8FD /* Project object */;
+}
