@@ -28,7 +28,17 @@ class CameraViewController: UIViewController {
         super.didReceiveMemoryWarning()
         
     }
-
+    //MARK: Actions
+    
+    @IBAction func shutterPressedDown(_ sender: UIButton)
+    {
+        //TODO: Magic
+    }
+    
+    @IBAction func changeCamera(_ sender: UIButton)
+    {
+        //TODO: Magic
+    }
 
 }
 

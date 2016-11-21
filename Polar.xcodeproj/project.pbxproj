@@ -19,6 +19,7 @@
 		EE2170511DCC90240082D8FD /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE21704E1DCC90240082D8FD /* CoreImage.framework */; };
 		EE4010B81DE38D3F00D98D95 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4010B71DE38D3F00D98D95 /* EditorViewController.swift */; };
 		EE4010BA1DE38D8900D98D95 /* GalleryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */; };
+		EEE1C1901DE3919E00988485 /* PresetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE1C18F1DE3919E00988485 /* PresetViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		EE21704E1DCC90240082D8FD /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		EE4010B71DE38D3F00D98D95 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewCell.swift; sourceTree = "<group>"; };
+		EEE1C18F1DE3919E00988485 /* PresetViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */,
+				EEE1C18F1DE3919E00988485 /* PresetViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				EE4010B81DE38D3F00D98D95 /* EditorViewController.swift in Sources */,
 				EE2170341DC935080082D8FD /* AppDelegate.swift in Sources */,
 				EE4010BA1DE38D8900D98D95 /* GalleryViewCell.swift in Sources */,
+				EEE1C1901DE3919E00988485 /* PresetViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
