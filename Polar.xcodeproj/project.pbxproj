@@ -20,6 +20,8 @@
 		EE4010B81DE38D3F00D98D95 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4010B71DE38D3F00D98D95 /* EditorViewController.swift */; };
 		EE4010BA1DE38D8900D98D95 /* GalleryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */; };
 		EEE1C1901DE3919E00988485 /* PresetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE1C18F1DE3919E00988485 /* PresetViewCell.swift */; };
+		EEE1C1B11DEF76C300988485 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE1C1B01DEF76C300988485 /* Editor.storyboard */; };
+		EEE1C1B41DEF776200988485 /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE1C1B31DEF776200988485 /* Gallery.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		EE4010B71DE38D3F00D98D95 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewCell.swift; sourceTree = "<group>"; };
 		EEE1C18F1DE3919E00988485 /* PresetViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetViewCell.swift; sourceTree = "<group>"; };
+		EEE1C1B01DEF76C300988485 /* Editor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Editor.storyboard; sourceTree = "<group>"; };
+		EEE1C1B31DEF776200988485 /* Gallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Gallery.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 		EE4010B11DE38C9E00D98D95 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EEE1C1B21DEF773B00988485 /* Library */,
 				EE4010B01DE38C9100D98D95 /* Base */,
 				EE4010AF1DE38C8800D98D95 /* Panes */,
 			);
@@ -148,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				EE2170371DC935080082D8FD /* Main.storyboard */,
+				EEE1C1B31DEF776200988485 /* Gallery.storyboard */,
+				EEE1C1B01DEF76C300988485 /* Editor.storyboard */,
 				EE21703F1DC935080082D8FD /* LaunchScreen.storyboard */,
 				EE21703D1DC935080082D8FD /* Assets.xcassets */,
 				EE2170421DC935080082D8FD /* Info.plist */,
@@ -185,6 +192,13 @@
 			children = (
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		EEE1C1B21DEF773B00988485 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,8 +261,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE2170411DC935080082D8FD /* LaunchScreen.storyboard in Resources */,
+				EEE1C1B41DEF776200988485 /* Gallery.storyboard in Resources */,
 				EE21703E1DC935080082D8FD /* Assets.xcassets in Resources */,
 				EE2170391DC935080082D8FD /* Main.storyboard in Resources */,
+				EEE1C1B11DEF76C300988485 /* Editor.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +404,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Polar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -402,6 +419,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Polar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

@@ -9,5 +9,8 @@
 import UIKit
 
 class GalleryViewCell: UICollectionViewCell {
+ 
+    @IBOutlet weak var pictureImageView: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
 }
