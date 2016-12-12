@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,29 +20,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uB0-pc-kAF">
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3c-u3-gR2">
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="shutterPressedDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CTA-6h-Dbt"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="O3c-u3-gR2" secondAttribute="trailing" constant="137" id="EBj-sa-513"/>
-                                    <constraint firstItem="O3c-u3-gR2" firstAttribute="top" secondItem="uB0-pc-kAF" secondAttribute="top" constant="495" id="Na5-ZQ-5oz"/>
-                                    <constraint firstAttribute="bottom" secondItem="O3c-u3-gR2" secondAttribute="bottom" constant="27" id="hRd-Pn-9Ip"/>
-                                    <constraint firstItem="O3c-u3-gR2" firstAttribute="leading" secondItem="uB0-pc-kAF" secondAttribute="leading" constant="137" id="srn-S0-YQq"/>
-                                </constraints>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="eJ4-du-0HH">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Qox-y9-iFt"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="manualFocusSetWith_sender:" destination="BYZ-38-t0r" eventType="valueChanged" id="ixf-SK-FON"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="F5t-z5-93S">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="MIy-q1-xXa"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="manualISOSetWith_sender:" destination="BYZ-38-t0r" eventType="valueChanged" id="vj3-Qq-4Vi"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="uB0-pc-kAF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="0Wu-Ep-6TK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="F5t-z5-93S" secondAttribute="bottom" constant="9" id="Eh2-NH-ydV"/>
                             <constraint firstItem="uB0-pc-kAF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Gwn-0S-Dq9"/>
+                            <constraint firstItem="eJ4-du-0HH" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="QjI-sW-iKC"/>
+                            <constraint firstItem="F5t-z5-93S" firstAttribute="top" secondItem="eJ4-du-0HH" secondAttribute="bottom" constant="8" id="ZpU-lV-5Vu"/>
                             <constraint firstAttribute="trailing" secondItem="uB0-pc-kAF" secondAttribute="trailing" id="ZtI-ai-I43"/>
-                            <constraint firstItem="uB0-pc-kAF" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="zKF-jE-o7h"/>
+                            <constraint firstItem="F5t-z5-93S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="bwD-le-3s9"/>
+                            <constraint firstAttribute="trailing" secondItem="F5t-z5-93S" secondAttribute="trailing" constant="16" id="etU-Wr-gaZ"/>
+                            <constraint firstItem="eJ4-du-0HH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="f1l-vv-Vdj"/>
+                            <constraint firstItem="eJ4-du-0HH" firstAttribute="top" secondItem="uB0-pc-kAF" secondAttribute="bottom" constant="8" id="pOD-Xw-QkZ"/>
+                            <constraint firstItem="F5t-z5-93S" firstAttribute="top" secondItem="eJ4-du-0HH" secondAttribute="bottom" constant="8" id="tCt-7E-GHc"/>
+                            <constraint firstItem="uB0-pc-kAF" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" constant="-85" id="zKF-jE-o7h"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iza-Vu-9OH">
@@ -56,14 +67,16 @@
                         </button>
                     </navigationItem>
                     <connections>
+                        <outlet property="ISOSlider" destination="F5t-z5-93S" id="bSN-IL-oB9"/>
+                        <outlet property="focusSlider" destination="eJ4-du-0HH" id="4mq-Ed-B83"/>
+                        <outlet property="previewView" destination="uB0-pc-kAF" id="CwM-0F-RZf"/>
                         <outlet property="reverseButton" destination="wui-WW-sp0" id="rzN-wr-d5Z"/>
-                        <outlet property="shutterButton" destination="O3c-u3-gR2" id="SLo-bF-v3S"/>
                         <outlet property="viewForImage" destination="uB0-pc-kAF" id="zax-ed-a2M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="979" y="138"/>
+            <point key="canvasLocation" x="978.75" y="137.32394366197184"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6WN-ha-5bg">
