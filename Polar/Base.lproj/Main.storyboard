@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,67 +21,76 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uB0-pc-kAF">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="eJ4-du-0HH">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Qox-y9-iFt"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="manualFocusSetWith_sender:" destination="BYZ-38-t0r" eventType="valueChanged" id="ixf-SK-FON"/>
-                                </connections>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="F5t-z5-93S">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="MIy-q1-xXa"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="manualISOSetWith_sender:" destination="BYZ-38-t0r" eventType="valueChanged" id="vj3-Qq-4Vi"/>
-                                </connections>
-                            </slider>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TxY-Z0-hMy">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gk4-02-A6U">
+                                        <frame key="frameInset" minX="131" minY="23" width="58" height="58"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="shutterPressedDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gtc-t7-6WR"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9vl-te-xOB">
+                                        <frame key="frameInset" minX="245" minY="23" width="58" height="58"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.50382543103448274" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xGz-sI-al6">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPB-gh-c1e">
+                                        <frame key="frameInset" minX="150" minY="22" width="21" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="cycle">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dqS-9c-4t0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.49601293103448274" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="uB0-pc-kAF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="0Wu-Ep-6TK"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="F5t-z5-93S" secondAttribute="bottom" constant="9" id="Eh2-NH-ydV"/>
+                            <constraint firstAttribute="trailing" secondItem="xGz-sI-al6" secondAttribute="trailing" id="4da-zm-sLk"/>
+                            <constraint firstItem="TxY-Z0-hMy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="464" id="7xy-HY-mMN"/>
+                            <constraint firstItem="xGz-sI-al6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8ww-iD-FGN"/>
                             <constraint firstItem="uB0-pc-kAF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Gwn-0S-Dq9"/>
-                            <constraint firstItem="eJ4-du-0HH" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="QjI-sW-iKC"/>
-                            <constraint firstItem="F5t-z5-93S" firstAttribute="top" secondItem="eJ4-du-0HH" secondAttribute="bottom" constant="8" id="ZpU-lV-5Vu"/>
+                            <constraint firstItem="TxY-Z0-hMy" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="UvM-kD-F0k"/>
                             <constraint firstAttribute="trailing" secondItem="uB0-pc-kAF" secondAttribute="trailing" id="ZtI-ai-I43"/>
-                            <constraint firstItem="F5t-z5-93S" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="bwD-le-3s9"/>
-                            <constraint firstAttribute="trailing" secondItem="F5t-z5-93S" secondAttribute="trailing" constant="16" id="etU-Wr-gaZ"/>
-                            <constraint firstItem="eJ4-du-0HH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="f1l-vv-Vdj"/>
-                            <constraint firstItem="eJ4-du-0HH" firstAttribute="top" secondItem="uB0-pc-kAF" secondAttribute="bottom" constant="8" id="pOD-Xw-QkZ"/>
-                            <constraint firstItem="F5t-z5-93S" firstAttribute="top" secondItem="eJ4-du-0HH" secondAttribute="bottom" constant="8" id="tCt-7E-GHc"/>
-                            <constraint firstItem="uB0-pc-kAF" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" constant="-85" id="zKF-jE-o7h"/>
+                            <constraint firstItem="xGz-sI-al6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fLd-Uz-Px8"/>
+                            <constraint firstItem="xGz-sI-al6" firstAttribute="trailing" secondItem="TxY-Z0-hMy" secondAttribute="trailing" id="gMP-dZ-9Jm"/>
+                            <constraint firstAttribute="bottom" secondItem="xGz-sI-al6" secondAttribute="bottom" constant="513" id="jLe-tg-uq4"/>
+                            <constraint firstItem="uB0-pc-kAF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="mme-RO-sEW"/>
+                            <constraint firstItem="xGz-sI-al6" firstAttribute="leading" secondItem="TxY-Z0-hMy" secondAttribute="leading" id="xPw-Bn-S2d"/>
+                            <constraint firstItem="uB0-pc-kAF" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" constant="-104" id="zKF-jE-o7h"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iza-Vu-9OH">
                         <nil key="title"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wui-WW-sp0">
-                            <rect key="frame" x="137" y="7" width="46" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="rev"/>
-                            <connections>
-                                <action selector="changeCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kbH-41-Hi4"/>
-                            </connections>
-                        </button>
                     </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="ISOSlider" destination="F5t-z5-93S" id="bSN-IL-oB9"/>
-                        <outlet property="focusSlider" destination="eJ4-du-0HH" id="4mq-Ed-B83"/>
                         <outlet property="previewView" destination="uB0-pc-kAF" id="CwM-0F-RZf"/>
-                        <outlet property="reverseButton" destination="wui-WW-sp0" id="rzN-wr-d5Z"/>
+                        <outlet property="reverseButton" destination="uPB-gh-c1e" id="idB-6j-cn3"/>
+                        <outlet property="shutterButton" destination="gk4-02-A6U" id="j6p-44-cNZ"/>
                         <outlet property="viewForImage" destination="uB0-pc-kAF" id="zax-ed-a2M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="978.75" y="137.32394366197184"/>
+            <point key="canvasLocation" x="1095" y="137.32394366197184"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6WN-ha-5bg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i4W-O9-1xW" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="i4W-O9-1xW" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cVT-gX-4Z8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -97,4 +105,7 @@
             <point key="canvasLocation" x="136.875" y="138.38028169014083"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cycle" width="21" height="21"/>
+    </resources>
 </document>

@@ -17,12 +17,51 @@
 		EE21704F1DCC90240082D8FD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE21704C1DCC90240082D8FD /* AVFoundation.framework */; };
 		EE2170501DCC90240082D8FD /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE21704D1DCC90240082D8FD /* AVKit.framework */; };
 		EE2170511DCC90240082D8FD /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE21704E1DCC90240082D8FD /* CoreImage.framework */; };
+		EE34B5861E07064000B4F60B /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE9190C01E0701940085EAF4 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE4010B81DE38D3F00D98D95 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4010B71DE38D3F00D98D95 /* EditorViewController.swift */; };
 		EE4010BA1DE38D8900D98D95 /* GalleryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */; };
+		EE9190C31E07019D0085EAF4 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9190C01E0701940085EAF4 /* GPUImage.framework */; };
 		EEE1C1901DE3919E00988485 /* PresetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE1C18F1DE3919E00988485 /* PresetViewCell.swift */; };
 		EEE1C1B11DEF76C300988485 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE1C1B01DEF76C300988485 /* Editor.storyboard */; };
 		EEE1C1B41DEF776200988485 /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE1C1B31DEF776200988485 /* Gallery.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EE9190BF1E0701940085EAF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE9190BA1E0701940085EAF4 /* GPUImage-iOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCD1B1251C66A262001F2BDC;
+			remoteInfo = GPUImage;
+		};
+		EE9190C11E0701940085EAF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE9190BA1E0701940085EAF4 /* GPUImage-iOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCD1B12F1C66A262001F2BDC;
+			remoteInfo = GPUImageTests;
+		};
+		EEEF79661E07087B00ACBF57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE9190BA1E0701940085EAF4 /* GPUImage-iOS.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCD1B1241C66A262001F2BDC;
+			remoteInfo = GPUImage;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EE34B5851E07063900B4F60B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EE34B5861E07064000B4F60B /* GPUImage.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		EE2170301DC935080082D8FD /* Polar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Polar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +78,7 @@
 		EE21704E1DCC90240082D8FD /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		EE4010B71DE38D3F00D98D95 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewCell.swift; sourceTree = "<group>"; };
+		EE9190BA1E0701940085EAF4 /* GPUImage-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "GPUImage-iOS.xcodeproj"; path = "framework/GPUImage-iOS.xcodeproj"; sourceTree = "<group>"; };
 		EEE1C18F1DE3919E00988485 /* PresetViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetViewCell.swift; sourceTree = "<group>"; };
 		EEE1C1B01DEF76C300988485 /* Editor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Editor.storyboard; sourceTree = "<group>"; };
 		EEE1C1B31DEF776200988485 /* Gallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Gallery.storyboard; sourceTree = "<group>"; };
@@ -49,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9190C31E07019D0085EAF4 /* GPUImage.framework in Frameworks */,
 				EE21704F1DCC90240082D8FD /* AVFoundation.framework in Frameworks */,
 				EE2170501DCC90240082D8FD /* AVKit.framework in Frameworks */,
 				EE2170511DCC90240082D8FD /* CoreImage.framework in Frameworks */,
@@ -61,6 +102,7 @@
 		EE2170271DC935080082D8FD = {
 			isa = PBXGroup;
 			children = (
+				EE9190BA1E0701940085EAF4 /* GPUImage-iOS.xcodeproj */,
 				EE2170321DC935080082D8FD /* Polar */,
 				EE2170311DC935080082D8FD /* Products */,
 				EE21704B1DCC90240082D8FD /* Frameworks */,
@@ -194,6 +236,15 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		EE9190BB1E0701940085EAF4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE9190C01E0701940085EAF4 /* GPUImage.framework */,
+				EE9190C21E0701940085EAF4 /* GPUImageTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		EEE1C1B21DEF773B00988485 /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,10 +262,12 @@
 				EE21702C1DC935080082D8FD /* Sources */,
 				EE21702D1DC935080082D8FD /* Frameworks */,
 				EE21702E1DC935080082D8FD /* Resources */,
+				EE34B5851E07063900B4F60B /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EEEF79671E07087B00ACBF57 /* PBXTargetDependency */,
 			);
 			name = Polar;
 			productName = Polar;
@@ -233,7 +286,8 @@
 				TargetAttributes = {
 					EE21702F1DC935080082D8FD = {
 						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = GU388YC6S7;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -248,12 +302,35 @@
 			mainGroup = EE2170271DC935080082D8FD;
 			productRefGroup = EE2170311DC935080082D8FD /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EE9190BB1E0701940085EAF4 /* Products */;
+					ProjectRef = EE9190BA1E0701940085EAF4 /* GPUImage-iOS.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				EE21702F1DC935080082D8FD /* Polar */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EE9190C01E0701940085EAF4 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = EE9190BF1E0701940085EAF4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EE9190C21E0701940085EAF4 /* GPUImageTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GPUImageTests.xctest;
+			remoteRef = EE9190C11E0701940085EAF4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EE21702E1DC935080082D8FD /* Resources */ = {
@@ -286,6 +363,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EEEF79671E07087B00ACBF57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImage;
+			targetProxy = EEEF79661E07087B00ACBF57 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EE2170371DC935080082D8FD /* Main.storyboard */ = {
@@ -405,7 +490,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = GU388YC6S7;
 				INFOPLIST_FILE = Polar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -419,8 +504,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = GU388YC6S7;
 				INFOPLIST_FILE = Polar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

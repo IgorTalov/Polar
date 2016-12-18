@@ -14,8 +14,8 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var viewForImage: UIView!
     @IBOutlet weak var shutterButton: UIButton!
     @IBOutlet weak var reverseButton: UIButton!
-    @IBOutlet weak var focusSlider: UISlider?
-    @IBOutlet weak var ISOSlider: UISlider?
+//    @IBOutlet weak var focusSlider: UISlider?
+//    @IBOutlet weak var ISOSlider: UISlider?
     @IBOutlet weak var previewView: UIView?
 
     let captureSession = AVCaptureSession()
@@ -24,8 +24,6 @@ class CameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(focusSlider!)
-        self.view.addSubview(ISOSlider!)
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
         let devices = AVCaptureDevice.devices()
         print(devices)
@@ -41,7 +39,7 @@ class CameraViewController: UIViewController {
             beginSession()
         }
 
-        self.shutterButton.layer.cornerRadius = 22.0
+        self.shutterButton.layer.cornerRadius = self.shutterButton.bounds.size.width / 2
         self.shutterButton.layer.borderColor = UIColor.darkGray.cgColor
         self.shutterButton.layer.borderWidth = 3.0
         
@@ -53,7 +51,6 @@ class CameraViewController: UIViewController {
     }
     
     func beginSession() {
-//        var error: NSError? = nil
         
         let videoInput: AVCaptureDeviceInput?
         
@@ -103,17 +100,21 @@ class CameraViewController: UIViewController {
     }
     
     //MARK: Set ISO
-    
     func setISOTo(value: Float) {
         if let device = captureDevice {
             let minISO = device.activeFormat.minISO
             let maxISO = device.activeFormat.maxISO
             let clampedISO = value * (maxISO - minISO) + minISO
-            print(clampedISO)
-            
-            device.setExposureModeCustomWithDuration(AVCaptureExposureDurationCurrent, iso: clampedISO, completionHandler: { (time) in
-                
-            })
+            //            print(clampedISO)
+            do {
+                try device.lockForConfiguration()
+                device.setExposureModeCustomWithDuration(AVCaptureExposureDurationCurrent, iso: clampedISO, completionHandler: { (time) in
+                    
+                })
+                device.unlockForConfiguration()
+            } catch {
+                // just ignore
+            }
         }
     }
     
@@ -132,7 +133,6 @@ class CameraViewController: UIViewController {
     }
     
     //MARK: Actions
-    
     @IBAction func shutterPressedDown(_ sender: UIButton)
     {
         //TODO: Magic
@@ -143,14 +143,13 @@ class CameraViewController: UIViewController {
         //TODO: Magic
     }
     
-    @IBAction func manualFocusSet(_sender: UISlider) {
-        
+    @IBAction func manualFocusSet(_sender: UISlider)
+    {
         focusTo(value: CGFloat(_sender.value))
-        
     }
     
-    @IBAction func manualISOSet(_sender: UISlider) {
-        
+    @IBAction func manualISOSet(_sender: UISlider)
+    {
         setISOTo(value: _sender.value)
         
     }
