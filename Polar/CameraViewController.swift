@@ -20,24 +20,18 @@ class CameraViewController: UIViewController {
 
     let captureSession = AVCaptureSession()
     
-    var captureDevice : AVCaptureDevice?
+    var curretCaptureDevice : AVCaptureDevice?
+    var backCaptureDevice : AVCaptureDevice?
+    var frontCaptureDevice : AVCaptureDevice?
+    var captureOutput : AVCaptureStillImageOutput?
+    var captureConnection : AVCaptureConnection?
+    var isLockForTouch: Bool = false
+    var timeForUnlock: CGFloat = 0.7
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        captureSession.sessionPreset = AVCaptureSessionPresetHigh
-        let devices = AVCaptureDevice.devices()
-        print(devices)
-        
-        for device in devices! {
-            if (device as AnyObject).hasMediaType(AVMediaTypeVideo) {
-                if (device as AnyObject).position == AVCaptureDevicePosition.back {
-                    captureDevice = device as? AVCaptureDevice
-                }
-            }
-        }
-        if captureDevice != nil {
-            beginSession()
-        }
+
+        configureSession()
 
         self.shutterButton.layer.cornerRadius = self.shutterButton.bounds.size.width / 2
         self.shutterButton.layer.borderColor = UIColor.darkGray.cgColor
@@ -50,12 +44,55 @@ class CameraViewController: UIViewController {
         
     }
     
+    func configureSession() {
+        captureSession.sessionPreset = AVCaptureSessionPresetHigh
+        let devices = AVCaptureDevice.devices()
+        
+        for device in devices! {
+            if (device as AnyObject).hasMediaType(AVMediaTypeVideo) {
+                if (device as AnyObject).position == AVCaptureDevicePosition.back {
+                    backCaptureDevice = device as? AVCaptureDevice
+                } else if (device as AnyObject).position == AVCaptureDevicePosition.front {
+                    frontCaptureDevice = device as? AVCaptureDevice
+                }
+            }
+        }
+        
+        curretCaptureDevice = backCaptureDevice
+        
+        if curretCaptureDevice != nil {
+            beginSession()
+        }
+    }
+    
+    func configureCapture () {
+        captureOutput = AVCaptureStillImageOutput()
+        
+        var outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
+        captureOutput?.outputSettings = outputSettings
+        self.captureSession.addOutput(captureOutput)
+        
+        for connection:AVCaptureConnection in captureOutput?.connections as! [AVCaptureConnection] {
+            
+            for port:AVCaptureInputPort in connection.inputPorts! as! [AVCaptureInputPort] {
+                if port.mediaType == AVMediaTypeVideo {
+                    captureConnection = connection as AVCaptureConnection
+                    break
+                }
+            }
+            if captureConnection != nil {
+                break
+            }
+        }
+        
+    }
+    
     func beginSession() {
         
         let videoInput: AVCaptureDeviceInput?
         
         do {
-            videoInput = try AVCaptureDeviceInput(device: captureDevice)
+            videoInput = try AVCaptureDeviceInput(device: backCaptureDevice)
         } catch {
             return
         }
@@ -63,17 +100,18 @@ class CameraViewController: UIViewController {
         if captureSession.canAddInput(videoInput){
             captureSession.addInput(videoInput)
         } else {
-//            print(error?.localizedDescription)
+            //just ignore
         }
         
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         self.previewView?.layer.addSublayer(previewLayer!)
         previewLayer?.frame = self.view.layer.frame
+        configureCapture()
         captureSession.startRunning()
     }
     
     func configureDevice() {
-        if let device = captureDevice {
+        if let device = backCaptureDevice {
             do {
                 try device.lockForConfiguration()
             } catch {
@@ -86,7 +124,7 @@ class CameraViewController: UIViewController {
     
     //MARK: Set Focus
     func focusTo(value: CGFloat) {
-        if let device = captureDevice {
+        if let device = backCaptureDevice {
             
             do {
                 try device.lockForConfiguration()
@@ -101,7 +139,7 @@ class CameraViewController: UIViewController {
     
     //MARK: Set ISO
     func setISOTo(value: Float) {
-        if let device = captureDevice {
+        if let device = backCaptureDevice {
             let minISO = device.activeFormat.minISO
             let maxISO = device.activeFormat.maxISO
             let clampedISO = value * (maxISO - minISO) + minISO
@@ -132,10 +170,36 @@ class CameraViewController: UIViewController {
         focusTo(value: touchPercent)
     }
     
+    //MARK: Take Photo
+    
+    func takePhoto() {
+        if let output = captureOutput {
+            DispatchQueue.global().async {
+                
+                let connection = output.connection(withMediaType: AVMediaTypeVideo)
+                
+                output.captureStillImageAsynchronously(from: connection, completionHandler: { (imageBuffer, error) in
+                    if imageBuffer != nil {
+                        
+                        let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageBuffer)
+                        let image = UIImage(data: imageData!)
+                        let deviceOrientation = UIDevice.current.orientation
+                        
+                        UIImageWriteToSavedPhotosAlbum(image!, self, nil, nil)
+                    }
+                    
+                })
+            }
+        } else {
+            print("output is not captureOutput")
+        }
+    }
+    
     //MARK: Actions
     @IBAction func shutterPressedDown(_ sender: UIButton)
     {
         //TODO: Magic
+        takePhoto()
     }
     
     @IBAction func changeCamera(_ sender: UIButton)
