@@ -11,14 +11,15 @@ import AVFoundation
 
 class CameraViewController: UIViewController {
     
-    @IBOutlet weak var viewForImage: UIView!
     @IBOutlet weak var shutterButton: UIButton!
     @IBOutlet weak var reverseButton: UIButton!
-//    @IBOutlet weak var focusSlider: UISlider?
-//    @IBOutlet weak var ISOSlider: UISlider?
     @IBOutlet weak var previewView: UIView?
-
+    @IBOutlet weak var headerView: UIView?
+    @IBOutlet weak var actionsView: UIView?
+    
     let captureSession = AVCaptureSession()
+    
+    var gridView : GridView!
     
     var curretCaptureDevice : AVCaptureDevice?
     var backCaptureDevice : AVCaptureDevice?
@@ -27,6 +28,7 @@ class CameraViewController: UIViewController {
     var captureConnection : AVCaptureConnection?
     var isLockForTouch: Bool = false
     var timeForUnlock: CGFloat = 0.7
+    var showGrid : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +39,21 @@ class CameraViewController: UIViewController {
         self.shutterButton.layer.borderColor = UIColor.darkGray.cgColor
         self.shutterButton.layer.borderWidth = 3.0
         
+        configureGrid()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
+    }
+    
+    func configureGrid() {
+        
+        let rect = CGRect(x: 0.0, y: (self.headerView?.frame.size.height)!, width: self.view.bounds.size.width, height: self.view.bounds.size.height - CGFloat((self.headerView?.frame.size.height)! + (self.actionsView?.frame.size.height)!))
+        
+        self.gridView = GridView(frame: rect, numberOfColumns: 3, numberOfRows: 3)
+        self.previewView?.addSubview(self.gridView)
+        self.showGrid = true
     }
     
     func configureSession() {
@@ -195,6 +207,18 @@ class CameraViewController: UIViewController {
         }
     }
     
+    //MARK: Add Grid Lines
+    
+    func addGridLines() {
+        if !showGrid {
+            showGrid = true
+            self.gridView.isHidden = false
+        } else {
+            showGrid = false
+            self.gridView.isHidden = true
+        }
+    }
+    
     //MARK: Actions
     @IBAction func shutterPressedDown(_ sender: UIButton)
     {
@@ -215,7 +239,11 @@ class CameraViewController: UIViewController {
     @IBAction func manualISOSet(_sender: UISlider)
     {
         setISOTo(value: _sender.value)
-        
+    }
+    
+    @IBAction func addGridLines(_sender: UIButton)
+    {
+        addGridLines()
     }
 
 }

@@ -21,6 +21,8 @@
 		EE4010B81DE38D3F00D98D95 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4010B71DE38D3F00D98D95 /* EditorViewController.swift */; };
 		EE4010BA1DE38D8900D98D95 /* GalleryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */; };
 		EE9190C31E07019D0085EAF4 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9190C01E0701940085EAF4 /* GPUImage.framework */; };
+		EE924A011E1D172D008C9235 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE924A001E1D172D008C9235 /* GridView.swift */; };
+		EE924A041E1D1F87008C9235 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE924A031E1D1F87008C9235 /* CoreGraphics.framework */; };
 		EEE1C1901DE3919E00988485 /* PresetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE1C18F1DE3919E00988485 /* PresetViewCell.swift */; };
 		EEE1C1B11DEF76C300988485 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE1C1B01DEF76C300988485 /* Editor.storyboard */; };
 		EEE1C1B41DEF776200988485 /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE1C1B31DEF776200988485 /* Gallery.storyboard */; };
@@ -79,6 +81,8 @@
 		EE4010B71DE38D3F00D98D95 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewCell.swift; sourceTree = "<group>"; };
 		EE9190BA1E0701940085EAF4 /* GPUImage-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "GPUImage-iOS.xcodeproj"; path = "framework/GPUImage-iOS.xcodeproj"; sourceTree = "<group>"; };
+		EE924A001E1D172D008C9235 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		EE924A031E1D1F87008C9235 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EEE1C18F1DE3919E00988485 /* PresetViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetViewCell.swift; sourceTree = "<group>"; };
 		EEE1C1B01DEF76C300988485 /* Editor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Editor.storyboard; sourceTree = "<group>"; };
 		EEE1C1B31DEF776200988485 /* Gallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Gallery.storyboard; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE924A041E1D1F87008C9235 /* CoreGraphics.framework in Frameworks */,
 				EE9190C31E07019D0085EAF4 /* GPUImage.framework in Frameworks */,
 				EE21704F1DCC90240082D8FD /* AVFoundation.framework in Frameworks */,
 				EE2170501DCC90240082D8FD /* AVKit.framework in Frameworks */,
@@ -140,6 +145,7 @@
 		EE21704B1DCC90240082D8FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE924A031E1D1F87008C9235 /* CoreGraphics.framework */,
 				EE21704C1DCC90240082D8FD /* AVFoundation.framework */,
 				EE21704D1DCC90240082D8FD /* AVKit.framework */,
 				EE21704E1DCC90240082D8FD /* CoreImage.framework */,
@@ -159,6 +165,7 @@
 			children = (
 				EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */,
 				EEE1C18F1DE3919E00988485 /* PresetViewCell.swift */,
+				EE924A001E1D172D008C9235 /* GridView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -354,6 +361,7 @@
 			files = (
 				EE2170361DC935080082D8FD /* CameraViewController.swift in Sources */,
 				EE21704A1DCC8FB60082D8FD /* GalleryViewController.swift in Sources */,
+				EE924A011E1D172D008C9235 /* GridView.swift in Sources */,
 				EE21703C1DC935080082D8FD /* Polar.xcdatamodeld in Sources */,
 				EE4010B81DE38D3F00D98D95 /* EditorViewController.swift in Sources */,
 				EE2170341DC935080082D8FD /* AppDelegate.swift in Sources */,
