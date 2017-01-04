@@ -16,6 +16,8 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var previewView: UIView?
     @IBOutlet weak var headerView: UIView?
     @IBOutlet weak var actionsView: UIView?
+    @IBOutlet weak var HDRButton: UIButton?
+    @IBOutlet weak var buttonsView: UIView?
     
     let captureSession = AVCaptureSession()
     
@@ -29,6 +31,7 @@ class CameraViewController: UIViewController {
     var isLockForTouch: Bool = false
     var timeForUnlock: CGFloat = 0.7
     var showGrid : Bool = false
+    var isHDR : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -168,6 +171,7 @@ class CameraViewController: UIViewController {
         }
     }
     
+    
     //MARK: Configure Touch Action
     let screenWidth = UIScreen.main.bounds.size.width
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -183,27 +187,48 @@ class CameraViewController: UIViewController {
     }
     
     //MARK: Take Photo
-    
     func takePhoto() {
-        if let output = captureOutput {
-            DispatchQueue.global().async {
-                
-                let connection = output.connection(withMediaType: AVMediaTypeVideo)
-                
-                output.captureStillImageAsynchronously(from: connection, completionHandler: { (imageBuffer, error) in
-                    if imageBuffer != nil {
-                        
-                        let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageBuffer)
-                        let image = UIImage(data: imageData!)
-                        let deviceOrientation = UIDevice.current.orientation
-                        
-                        UIImageWriteToSavedPhotosAlbum(image!, self, nil, nil)
+        if isHDR {
+            if let output = captureOutput {
+                DispatchQueue.global().async {
+                    let connection = output.connection(withMediaType: AVMediaTypeVideo)
+                    
+                    let settings = [-1.0, 0.0, 2.0].map {
+                        (bias: Float) -> AVCaptureAutoExposureBracketedStillImageSettings in
+                        AVCaptureAutoExposureBracketedStillImageSettings.autoExposureSettings(withExposureTargetBias: bias)
                     }
                     
-                })
+                    output.captureStillImageBracketAsynchronously(from: connection, withSettingsArray: settings, completionHandler: { (imageBuffer, settings, error) in
+                        if imageBuffer != nil {
+                            
+                            let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageBuffer)
+                            let image = UIImage(data: imageData!)
+                            
+                            UIImageWriteToSavedPhotosAlbum(image!, self, nil, nil)
+                        }
+                    })
+                }
+            } else {
+                print("output is not captureOutput")
             }
         } else {
-            print("output is not captureOutput")
+            if let output = captureOutput {
+                DispatchQueue.global().async {
+                    let connection = output.connection(withMediaType: AVMediaTypeVideo)
+                    output.captureStillImageAsynchronously(from: connection, completionHandler: { (imageBuffer, error) in
+                        if imageBuffer != nil {
+                            
+                            let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageBuffer)
+                            let image = UIImage(data: imageData!)
+                            //                        let deviceOrientation = UIDevice.current.orientation
+                            UIImageWriteToSavedPhotosAlbum(image!, self, nil, nil)
+                        }
+                        
+                    })
+                }
+            } else {
+                print("output is not captureOutput")
+            }
         }
     }
     
@@ -240,10 +265,24 @@ class CameraViewController: UIViewController {
     {
         setISOTo(value: _sender.value)
     }
-    
+    //MARK: Grid Action
     @IBAction func addGridLines(_sender: UIButton)
     {
         addGridLines()
+    }
+    //MARK:Set HDR
+    @IBAction func setHDR(_sender: UIButton)
+    {
+        let imageOn = UIImage(named: "HDR on")
+        let imageOff = UIImage(named: "HDR off")
+        
+        if isHDR {
+            self.HDRButton?.setImage(imageOff, for: .normal)
+            self.isHDR = false
+        } else {
+            self.HDRButton?.setImage(imageOn, for: .normal)
+            self.isHDR = true
+        }
     }
 
 }
