@@ -23,6 +23,7 @@
 		EE9190C31E07019D0085EAF4 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9190C01E0701940085EAF4 /* GPUImage.framework */; };
 		EE924A011E1D172D008C9235 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE924A001E1D172D008C9235 /* GridView.swift */; };
 		EE924A041E1D1F87008C9235 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE924A031E1D1F87008C9235 /* CoreGraphics.framework */; };
+		EEBCE2331E22891500021F45 /* PresetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2321E22891500021F45 /* PresetItem.swift */; };
 		EEE1C1901DE3919E00988485 /* PresetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE1C18F1DE3919E00988485 /* PresetViewCell.swift */; };
 		EEE1C1B11DEF76C300988485 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE1C1B01DEF76C300988485 /* Editor.storyboard */; };
 		EEE1C1B41DEF776200988485 /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE1C1B31DEF776200988485 /* Gallery.storyboard */; };
@@ -83,6 +84,7 @@
 		EE9190BA1E0701940085EAF4 /* GPUImage-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "GPUImage-iOS.xcodeproj"; path = "framework/GPUImage-iOS.xcodeproj"; sourceTree = "<group>"; };
 		EE924A001E1D172D008C9235 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		EE924A031E1D1F87008C9235 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EEBCE2321E22891500021F45 /* PresetItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetItem.swift; sourceTree = "<group>"; };
 		EEE1C18F1DE3919E00988485 /* PresetViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetViewCell.swift; sourceTree = "<group>"; };
 		EEE1C1B01DEF76C300988485 /* Editor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Editor.storyboard; sourceTree = "<group>"; };
 		EEE1C1B31DEF776200988485 /* Gallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Gallery.storyboard; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		EE4010AD1DE38C6F00D98D95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EEBCE2321E22891500021F45 /* PresetItem.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				EE21703C1DC935080082D8FD /* Polar.xcdatamodeld in Sources */,
 				EE4010B81DE38D3F00D98D95 /* EditorViewController.swift in Sources */,
 				EE2170341DC935080082D8FD /* AppDelegate.swift in Sources */,
+				EEBCE2331E22891500021F45 /* PresetItem.swift in Sources */,
 				EE4010BA1DE38D8900D98D95 /* GalleryViewCell.swift in Sources */,
 				EEE1C1901DE3919E00988485 /* PresetViewCell.swift in Sources */,
 			);
