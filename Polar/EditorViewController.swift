@@ -15,7 +15,7 @@ class EditorViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     @IBOutlet weak var presetsCollectionView: UICollectionView?
     @IBOutlet weak var currentImageView: UIImageView?
-    
+
     var currentImage: UIImage!
     var presetImage: UIImage!
     var presetItems: NSMutableArray!
@@ -75,7 +75,39 @@ class EditorViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Select Item # \(indexPath.row)")
+        changePresetForImage(filter: indexPath.row)
     }
     
+    //MARK: Image Processing
     
+    func changePresetForImage(filter: Int) {
+        //MARK: Make Magic
+        let inputImage = currentImage
+        
+        switch filter {
+        case 0:
+            let filter = SmoothToonFilter()
+            let filterImage = inputImage?.filterWithOperation(filter)
+            DispatchQueue.main.async {
+                self.currentImageView?.image = filterImage
+            }
+            break
+        case 1:
+            let filter = TiltShift()
+            let filterImage = inputImage?.filterWithOperation(filter)
+            DispatchQueue.main.async {
+                self.currentImageView?.image = filterImage
+            }
+            break
+        case 2:
+            let filter = MonochromeFilter()
+            let filterImage = inputImage?.filterWithOperation(filter)
+            DispatchQueue.main.async {
+                self.currentImageView?.image = filterImage
+            }
+            break
+        default:
+            break
+        }
+    }
 }
