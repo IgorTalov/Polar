@@ -19,7 +19,8 @@ class EditorViewController: UIViewController, UICollectionViewDataSource, UIColl
     var currentImage: UIImage!
     var presetImage: UIImage!
     var presetItems: NSMutableArray!
-
+    var titleForFilters = ["Normal","Smooth","Tilt-Shift","Sepia"] as NSArray
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,7 +67,7 @@ class EditorViewController: UIViewController, UICollectionViewDataSource, UIColl
         let item = presetItems.object(at: indexPath.row) as! PresetItem
         
         cell.imageView?.image = item.image
-        cell.titleLabel?.text = item.title
+        cell.titleLabel?.text = titleForFilters.object(at: indexPath.row) as! String
         
         return cell
     }
@@ -86,20 +87,26 @@ class EditorViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         switch filter {
         case 0:
+            let filterImage = currentImage
+            DispatchQueue.main.async {
+                self.currentImageView?.image = filterImage
+            }
+            break
+        case 1:
             let filter = SmoothToonFilter()
             let filterImage = inputImage?.filterWithOperation(filter)
             DispatchQueue.main.async {
                 self.currentImageView?.image = filterImage
             }
             break
-        case 1:
+        case 2:
             let filter = TiltShift()
             let filterImage = inputImage?.filterWithOperation(filter)
             DispatchQueue.main.async {
                 self.currentImageView?.image = filterImage
             }
             break
-        case 2:
+        case 3:
             let filter = MonochromeFilter()
             let filterImage = inputImage?.filterWithOperation(filter)
             DispatchQueue.main.async {
