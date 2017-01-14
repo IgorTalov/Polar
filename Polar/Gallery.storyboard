@@ -82,12 +82,38 @@
                             <constraint firstAttribute="trailing" secondItem="bhP-BZ-mum" secondAttribute="trailing" id="oMg-ve-2fN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="StO-7G-z6C"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" id="StO-7G-z6C">
+                        <barButtonItem key="backBarButtonItem" title="назад" id="43v-Vd-MxP"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Kyy-9V-NBK">
+                            <connections>
+                                <segue destination="Yvq-NK-FNv" kind="push" splitViewControllerTargetIndex="1" id="U2R-lW-Tvy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DR6-CT-GAK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2608.125" y="143.66197183098592"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0hL-ET-EMo">
+            <objects>
+                <viewController id="Yvq-NK-FNv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fi1-qx-oqM"/>
+                        <viewControllerLayoutGuide type="bottom" id="6p5-5M-hFe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a4b-dJ-qkq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ECE-ee-HX1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="itX-yR-onp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3467" y="144"/>
         </scene>
     </scenes>
 </document>

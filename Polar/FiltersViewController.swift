@@ -1,5 +1,5 @@
 //
-//  EditorViewController.swift
+//  FiltersViewController.swift
 //  Polar
 //
 //  Created by Игорь Талов on 21.11.16.
@@ -11,7 +11,7 @@ import GPUImage
 
 let presetCollectionViewCellIdentifier = "PresetCell"
 
-class EditorViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class FiltersViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var presetsCollectionView: UICollectionView?
     @IBOutlet weak var currentImageView: UIImageView?

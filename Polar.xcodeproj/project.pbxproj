@@ -18,7 +18,7 @@
 		EE2170501DCC90240082D8FD /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE21704D1DCC90240082D8FD /* AVKit.framework */; };
 		EE2170511DCC90240082D8FD /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE21704E1DCC90240082D8FD /* CoreImage.framework */; };
 		EE34B5861E07064000B4F60B /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE9190C01E0701940085EAF4 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EE4010B81DE38D3F00D98D95 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4010B71DE38D3F00D98D95 /* EditorViewController.swift */; };
+		EE4010B81DE38D3F00D98D95 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4010B71DE38D3F00D98D95 /* FiltersViewController.swift */; };
 		EE4010BA1DE38D8900D98D95 /* GalleryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */; };
 		EE9190C31E07019D0085EAF4 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9190C01E0701940085EAF4 /* GPUImage.framework */; };
 		EE924A011E1D172D008C9235 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE924A001E1D172D008C9235 /* GridView.swift */; };
@@ -79,7 +79,7 @@
 		EE21704C1DCC90240082D8FD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EE21704D1DCC90240082D8FD /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		EE21704E1DCC90240082D8FD /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
-		EE4010B71DE38D3F00D98D95 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
+		EE4010B71DE38D3F00D98D95 /* FiltersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
 		EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewCell.swift; sourceTree = "<group>"; };
 		EE9190BA1E0701940085EAF4 /* GPUImage-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "GPUImage-iOS.xcodeproj"; path = "framework/GPUImage-iOS.xcodeproj"; sourceTree = "<group>"; };
 		EE924A001E1D172D008C9235 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 			children = (
 				EE2170351DC935080082D8FD /* CameraViewController.swift */,
 				EE2170491DCC8FB60082D8FD /* GalleryViewController.swift */,
-				EE4010B71DE38D3F00D98D95 /* EditorViewController.swift */,
+				EE4010B71DE38D3F00D98D95 /* FiltersViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -366,7 +366,7 @@
 				EE21704A1DCC8FB60082D8FD /* GalleryViewController.swift in Sources */,
 				EE924A011E1D172D008C9235 /* GridView.swift in Sources */,
 				EE21703C1DC935080082D8FD /* Polar.xcdatamodeld in Sources */,
-				EE4010B81DE38D3F00D98D95 /* EditorViewController.swift in Sources */,
+				EE4010B81DE38D3F00D98D95 /* FiltersViewController.swift in Sources */,
 				EE2170341DC935080082D8FD /* AppDelegate.swift in Sources */,
 				EEBCE2331E22891500021F45 /* PresetItem.swift in Sources */,
 				EE4010BA1DE38D8900D98D95 /* GalleryViewCell.swift in Sources */,
