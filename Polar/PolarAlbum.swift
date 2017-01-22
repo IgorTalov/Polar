@@ -18,6 +18,7 @@ class PolarAlbum: NSObject {
     var collection: PHAssetCollection!
     var assetCollectionPlaceHolder: PHObjectPlaceholder!
     var photoAsset: PHFetchResult<AnyObject>!
+    var photo: UIImage!
     
     override init() {
         super.init()
@@ -66,6 +67,45 @@ class PolarAlbum: NSObject {
                 print("error")
             }
         }
+    }
+    
+    func showImages() -> NSMutableArray {
         
+        let images = NSMutableArray()
+//        let resultImages: NSArray
+        
+        //This will fetch all the assets in the collection
+        let assets: PHFetchResult = PHAsset.fetchAssets(in: self.assetCollection, options: nil)
+        print(assets)
+        
+        let imageManager = PHCachingImageManager()
+        //Enumerating objects to get a chached image - This is to save loading time
+        assets.enumerateObjects({(object: AnyObject!,
+            count: Int,
+            stop: UnsafeMutablePointer<ObjCBool>) in
+            
+            if object is PHAsset {
+                let asset = object as! PHAsset
+                print(asset)
+                
+                let imageSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
+                
+                let options = PHImageRequestOptions()
+                options.deliveryMode = .fastFormat
+                options.isSynchronous = true
+                
+                imageManager.requestImage(for: asset,
+                          targetSize: imageSize,
+                          contentMode: .aspectFill,
+                          options: options,
+                          resultHandler: { (image, info) in
+                           
+                            self.photo = image!
+                            
+                            images.add(self.photo)
+                })
+            }
+        })
+        return images
     }
 }

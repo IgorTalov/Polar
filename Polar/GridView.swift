@@ -43,8 +43,8 @@ class GridView: UIView {
         
         //Draw Columns
         for i in 0...self.numberOfColumns {
-            var startPoint : CGPoint = CGPoint(x: columnWidth * CGFloat(i), y: 0.0)
-            var endPoint : CGPoint = CGPoint(x: startPoint.x, y: self.frame.size.height)
+            let startPoint : CGPoint = CGPoint(x: columnWidth * CGFloat(i), y: 0.0)
+            let endPoint : CGPoint = CGPoint(x: startPoint.x, y: self.frame.size.height)
             
             contex.move(to: startPoint)
             contex.addLine(to: endPoint)
@@ -53,8 +53,8 @@ class GridView: UIView {
         
         //Draw Rows
         for j in 0...self.numberOfRows {
-            var startPoint : CGPoint = CGPoint(x: 0.0, y: rowHight * CGFloat(j))
-            var endPoint : CGPoint = CGPoint(x: self.frame.size.width, y: startPoint.y)
+            let startPoint : CGPoint = CGPoint(x: 0.0, y: rowHight * CGFloat(j))
+            let endPoint : CGPoint = CGPoint(x: self.frame.size.width, y: startPoint.y)
             
             contex.move(to: startPoint)
             contex.addLine(to: endPoint)

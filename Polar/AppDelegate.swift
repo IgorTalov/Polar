@@ -48,8 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //TODO: Delete
     func setApperance() {
-        UINavigationBar.appearance().tintColor = UIColor.black
-        UINavigationBar.appearance().backgroundColor = UIColor.black
+//        UINavigationBar.appearance().tintColor = UIColor.black
+//        UINavigationBar.appearance().backgroundColor = UIColor.black
     }
 
 }

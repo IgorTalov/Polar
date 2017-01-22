@@ -286,5 +286,9 @@ class CameraViewController: UIViewController {
         }
     }
 
+    @IBAction func closeController(_ sender: UIButton)
+    {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
