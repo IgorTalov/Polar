@@ -16,12 +16,16 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var photoCollectionView: UICollectionView?
     @IBOutlet weak var addButton: UIBarButtonItem?
     @IBOutlet weak var cameraButton: UIBarButtonItem?
+    @IBOutlet weak var backgroundImageView: UIImageView?
     
     var photoAlbum = PolarAlbum()
     var photosFromAlbum = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.lightGray
+        setNavigationBar()
         
         self.photoCollectionView!.register(GalleryViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
@@ -31,6 +35,22 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         reloadDisplay()
+        setBackgroundImage()
+    }
+    
+    func setNavigationBar() {
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.navigationController?.navigationBar.alpha = 0.4
+    }
+    
+    func setBackgroundImage() {
+        let image: UIImage = photoAlbum.showImages().lastObject as! UIImage
+        self.backgroundImageView?.image = image
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.backgroundImageView?.addSubview(blurEffectView)
     }
     
     //MARK: Reload Display

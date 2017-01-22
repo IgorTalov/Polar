@@ -39,9 +39,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bhP-BZ-mum">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YRQ-2S-O89">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bhP-BZ-mum">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OjW-Y1-NEa">
                                     <size key="itemSize" width="291" height="171"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -50,26 +53,13 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PictureCell" id="Xdp-NN-Hui" customClass="GalleryViewCell" customModule="Polar">
-                                        <rect key="frame" x="14.5" y="0.0" width="291" height="171"/>
+                                        <rect key="frame" x="15" y="0.0" width="291" height="171"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="291" height="171"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fF3-Sa-7ny">
-                                                    <rect key="frame" x="0.0" y="0.0" width="291" height="171"/>
-                                                </imageView>
-                                            </subviews>
                                         </view>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="fF3-Sa-7ny" secondAttribute="trailing" id="2Sb-Nb-b3t"/>
-                                            <constraint firstAttribute="bottom" secondItem="fF3-Sa-7ny" secondAttribute="bottom" id="MpB-fS-rkM"/>
-                                            <constraint firstItem="fF3-Sa-7ny" firstAttribute="leading" secondItem="Xdp-NN-Hui" secondAttribute="leading" id="XxI-Q4-kC0"/>
-                                            <constraint firstItem="fF3-Sa-7ny" firstAttribute="top" secondItem="Xdp-NN-Hui" secondAttribute="top" id="uxU-8b-txF"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="pictureImageView" destination="fF3-Sa-7ny" id="UrI-pM-Iwy"/>
-                                        </connections>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -81,9 +71,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="yfF-72-Xrr" firstAttribute="top" secondItem="bhP-BZ-mum" secondAttribute="bottom" id="EPD-rw-Vlz"/>
-                            <constraint firstItem="bhP-BZ-mum" firstAttribute="top" secondItem="zln-93-tNZ" secondAttribute="top" id="G7p-XC-hma"/>
+                            <constraint firstItem="bhP-BZ-mum" firstAttribute="top" secondItem="zln-93-tNZ" secondAttribute="top" constant="64" id="G7p-XC-hma"/>
                             <constraint firstItem="bhP-BZ-mum" firstAttribute="leading" secondItem="zln-93-tNZ" secondAttribute="leading" id="Yys-ji-rfc"/>
+                            <constraint firstItem="YRQ-2S-O89" firstAttribute="top" secondItem="zln-93-tNZ" secondAttribute="top" id="gTO-mR-fZ3"/>
+                            <constraint firstItem="yfF-72-Xrr" firstAttribute="top" secondItem="YRQ-2S-O89" secondAttribute="bottom" id="ghR-jk-qP7"/>
+                            <constraint firstItem="YRQ-2S-O89" firstAttribute="leading" secondItem="zln-93-tNZ" secondAttribute="leading" id="k5E-Ne-4g4"/>
                             <constraint firstAttribute="trailing" secondItem="bhP-BZ-mum" secondAttribute="trailing" id="oMg-ve-2fN"/>
+                            <constraint firstAttribute="trailing" secondItem="YRQ-2S-O89" secondAttribute="trailing" id="oX6-Z2-EIJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="StO-7G-z6C">
@@ -103,6 +97,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="addButton" destination="Kyy-9V-NBK" id="Xsr-TO-wc2"/>
+                        <outlet property="backgroundImageView" destination="YRQ-2S-O89" id="Qwc-ig-RLx"/>
                         <outlet property="cameraButton" destination="N1z-zU-rjf" id="5td-RR-NVC"/>
                         <outlet property="photoCollectionView" destination="bhP-BZ-mum" id="jiH-Qk-oMT"/>
                     </connections>

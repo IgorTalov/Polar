@@ -97,7 +97,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPB-gh-c1e">
-                                        <rect key="frame" x="150" y="22" width="25" height="25"/>
+                                        <rect key="frame" x="150" y="19" width="28" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="cycle">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

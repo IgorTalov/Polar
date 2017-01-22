@@ -19,6 +19,7 @@ class GalleryViewCell: UICollectionViewCell {
         
         imageView = UIImageView(frame: rect)
         imageView.contentMode = UIViewContentMode.scaleAspectFit
+        self.backgroundView?.backgroundColor = UIColor.clear
         self.contentView.addSubview(imageView)
     }
     
