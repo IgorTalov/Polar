@@ -24,6 +24,10 @@
 		EE924A011E1D172D008C9235 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE924A001E1D172D008C9235 /* GridView.swift */; };
 		EE924A041E1D1F87008C9235 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE924A031E1D1F87008C9235 /* CoreGraphics.framework */; };
 		EEBCE2331E22891500021F45 /* PresetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2321E22891500021F45 /* PresetItem.swift */; };
+		EEBCE2361E2AA84000021F45 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2351E2AA84000021F45 /* Filter.swift */; };
+		EEBCE2381E2B9EBF00021F45 /* TestEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2371E2B9EBF00021F45 /* TestEditViewController.swift */; };
+		EEBCE23A1E33BEBA00021F45 /* PolarAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBCE2391E33BEBA00021F45 /* PolarAlbum.swift */; };
+		EEBCE23C1E33BF4600021F45 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEBCE23B1E33BF4600021F45 /* Photos.framework */; };
 		EEE1C1901DE3919E00988485 /* PresetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE1C18F1DE3919E00988485 /* PresetViewCell.swift */; };
 		EEE1C1B11DEF76C300988485 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE1C1B01DEF76C300988485 /* Editor.storyboard */; };
 		EEE1C1B41DEF776200988485 /* Gallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE1C1B31DEF776200988485 /* Gallery.storyboard */; };
@@ -85,6 +89,10 @@
 		EE924A001E1D172D008C9235 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		EE924A031E1D1F87008C9235 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EEBCE2321E22891500021F45 /* PresetItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetItem.swift; sourceTree = "<group>"; };
+		EEBCE2351E2AA84000021F45 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		EEBCE2371E2B9EBF00021F45 /* TestEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestEditViewController.swift; sourceTree = "<group>"; };
+		EEBCE2391E33BEBA00021F45 /* PolarAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolarAlbum.swift; sourceTree = "<group>"; };
+		EEBCE23B1E33BF4600021F45 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		EEE1C18F1DE3919E00988485 /* PresetViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetViewCell.swift; sourceTree = "<group>"; };
 		EEE1C1B01DEF76C300988485 /* Editor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Editor.storyboard; sourceTree = "<group>"; };
 		EEE1C1B31DEF776200988485 /* Gallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Gallery.storyboard; sourceTree = "<group>"; };
@@ -95,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEBCE23C1E33BF4600021F45 /* Photos.framework in Frameworks */,
 				EE924A041E1D1F87008C9235 /* CoreGraphics.framework in Frameworks */,
 				EE9190C31E07019D0085EAF4 /* GPUImage.framework in Frameworks */,
 				EE21704F1DCC90240082D8FD /* AVFoundation.framework in Frameworks */,
@@ -140,6 +149,7 @@
 				EE2170351DC935080082D8FD /* CameraViewController.swift */,
 				EE2170491DCC8FB60082D8FD /* GalleryViewController.swift */,
 				EE4010B71DE38D3F00D98D95 /* FiltersViewController.swift */,
+				EEBCE2371E2B9EBF00021F45 /* TestEditViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -147,6 +157,7 @@
 		EE21704B1DCC90240082D8FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EEBCE23B1E33BF4600021F45 /* Photos.framework */,
 				EE924A031E1D1F87008C9235 /* CoreGraphics.framework */,
 				EE21704C1DCC90240082D8FD /* AVFoundation.framework */,
 				EE21704D1DCC90240082D8FD /* AVKit.framework */,
@@ -159,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				EEBCE2321E22891500021F45 /* PresetItem.swift */,
+				EEBCE2351E2AA84000021F45 /* Filter.swift */,
+				EEBCE2391E33BEBA00021F45 /* PolarAlbum.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -363,9 +376,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE2170361DC935080082D8FD /* CameraViewController.swift in Sources */,
+				EEBCE2361E2AA84000021F45 /* Filter.swift in Sources */,
 				EE21704A1DCC8FB60082D8FD /* GalleryViewController.swift in Sources */,
 				EE924A011E1D172D008C9235 /* GridView.swift in Sources */,
 				EE21703C1DC935080082D8FD /* Polar.xcdatamodeld in Sources */,
+				EEBCE2381E2B9EBF00021F45 /* TestEditViewController.swift in Sources */,
+				EEBCE23A1E33BEBA00021F45 /* PolarAlbum.swift in Sources */,
 				EE4010B81DE38D3F00D98D95 /* FiltersViewController.swift in Sources */,
 				EE2170341DC935080082D8FD /* AppDelegate.swift in Sources */,
 				EEBCE2331E22891500021F45 /* PresetItem.swift in Sources */,

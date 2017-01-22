@@ -9,17 +9,19 @@
 import UIKit
 import GPUImage
 
+
 let presetCollectionViewCellIdentifier = "PresetCell"
 
 class FiltersViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var presetsCollectionView: UICollectionView?
     @IBOutlet weak var currentImageView: UIImageView?
-
+    
+    let filterManager = Filter()
     var currentImage: UIImage!
     var presetImage: UIImage!
     var presetItems: NSMutableArray!
-    var titleForFilters = ["Normal","Smooth","Tilt-Shift","Sepia"] as NSArray
+    var titleForFilters = ["Normal","Smooth","Tilt-Shift","Sepia","Bright"] as NSArray
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +59,7 @@ class FiltersViewController: UIViewController, UICollectionViewDataSource, UICol
     
     //MARK: UICollectionViewDataSource
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presetItems.count
+        return titleForFilters .count
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -67,7 +69,7 @@ class FiltersViewController: UIViewController, UICollectionViewDataSource, UICol
         let item = presetItems.object(at: indexPath.row) as! PresetItem
         
         cell.imageView?.image = item.image
-        cell.titleLabel?.text = titleForFilters.object(at: indexPath.row) as! String
+        cell.titleLabel?.text = titleForFilters.object(at: indexPath.row) as? String
         
         return cell
     }
@@ -113,6 +115,11 @@ class FiltersViewController: UIViewController, UICollectionViewDataSource, UICol
                 self.currentImageView?.image = filterImage
             }
             break
+        case 4:
+            let filterImage = self.filterManager.myFilterForImage(image: inputImage!)
+            DispatchQueue.main.async {
+                self.currentImageView?.image = filterImage
+            }
         default:
             break
         }

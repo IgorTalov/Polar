@@ -32,10 +32,12 @@ class CameraViewController: UIViewController {
     var timeForUnlock: CGFloat = 0.7
     var showGrid : Bool = false
     var isHDR : Bool = false
+    var photoAlbum = PolarAlbum()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureSession()
 
         self.shutterButton.layer.cornerRadius = self.shutterButton.bounds.size.width / 2
@@ -83,7 +85,7 @@ class CameraViewController: UIViewController {
     func configureCapture () {
         captureOutput = AVCaptureStillImageOutput()
         
-        var outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
+        let outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
         captureOutput?.outputSettings = outputSettings
         self.captureSession.addOutput(captureOutput)
         
@@ -204,7 +206,7 @@ class CameraViewController: UIViewController {
                             let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageBuffer)
                             let image = UIImage(data: imageData!)
                             
-                            UIImageWriteToSavedPhotosAlbum(image!, self, nil, nil)
+                            self.photoAlbum.saveImage(image: image!)
                         }
                     })
                 }
@@ -221,9 +223,8 @@ class CameraViewController: UIViewController {
                             let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageBuffer)
                             let image = UIImage(data: imageData!)
                             //                        let deviceOrientation = UIDevice.current.orientation
-                            UIImageWriteToSavedPhotosAlbum(image!, self, nil, nil)
+                            self.photoAlbum.saveImage(image: image!)
                         }
-                        
                     })
                 }
             } else {
