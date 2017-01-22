@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Wec-8Y-1Cn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Pq3-XN-RKI">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Filters View Controller-->
         <scene sceneID="ZdR-cO-Lig">
             <objects>
-                <viewController id="nZ8-ib-106" customClass="FiltersViewController" customModule="Polar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="FiltersViewController" storyboardIdentifier="FiltersViewController" id="nZ8-ib-106" customClass="FiltersViewController" customModule="Polar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eHP-8a-C7P"/>
                         <viewControllerLayoutGuide type="bottom" id="yvc-Uy-f2e"/>
@@ -88,6 +88,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKQ-0A-hMG">
                                 <rect key="frame" x="0.0" y="516" width="320" height="52"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="j3I-5j-aXe"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -125,18 +128,15 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="nZ8-ib-106" kind="relationship" relationship="rootViewController" id="Y3v-JJ-LKq"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="otk-Pd-8mc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2642.4000000000001" y="137.18140929535232"/>
         </scene>
-        <!--Test Edit View Controller-->
+        <!--View Controller-->
         <scene sceneID="BAi-oI-GI2">
             <objects>
-                <viewController id="qnc-yf-ZPE" customClass="TestEditViewController" customModule="Polar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="TestEditViewController" id="qnc-yf-ZPE" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QJn-sC-XUh"/>
                         <viewControllerLayoutGuide type="bottom" id="mA2-yz-AGw"/>

@@ -9,6 +9,8 @@
 import UIKit
 
 private let reuseIdentifier = "PictureCell"
+private let segueEditIdentifier = "goToEditSegue"
+private let segueCameraIdentifier = "showCameraSegue"
 
 class GalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -20,6 +22,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     
     var photoAlbum = PolarAlbum()
     var photosFromAlbum = NSMutableArray()
+    var selectedIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +49,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     func setBackgroundImage() {
         let image: UIImage = photoAlbum.showImages().lastObject as! UIImage
         self.backgroundImageView?.image = image
-        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffect = UIBlurEffect(style: .light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -101,23 +104,10 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     
     
     // MARK: UICollectionViewDelegate
-
-     func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
     
-    // Uncomment this method to specify if the specified item should be selected
-     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-     func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-     func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        performSegue(withIdentifier: segueEditIdentifier, sender: self)
     }
  
     //MARK: Actions
@@ -125,5 +115,16 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     @IBAction func showCameracontroller (_ sender: UIBarButtonItem) {
         let cameraViewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CameraViewController") as UIViewController
         self.present(cameraViewController, animated: true, completion: nil)
+    }
+    
+    //MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == segueEditIdentifier {
+            let editViewController = segue.destination as! FiltersViewController
+            let image = self.photosFromAlbum.object(at: selectedIndex) as! UIImage
+            editViewController.currentImage = image
+        }
     }
 }

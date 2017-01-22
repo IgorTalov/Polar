@@ -18,7 +18,7 @@ class TestEditViewController: UIViewController {
     
     var currentImageView: RenderView!
     
-    var currentImage: UIImage!
+    public var currentImage: UIImage!
     var pictureInput: PictureInput!
     var brightFilter: BrightnessAdjustment!
     var contrastFilter: ContrastAdjustment!
@@ -30,7 +30,7 @@ class TestEditViewController: UIViewController {
         currentImageView = RenderView()
         currentImageView.frame = CGRect(x: 0, y: 78, width: 320, height: 200)
         
-        self.currentImage = UIImage(named: "testImage")
+//        self.currentImage = UIImage(named: "testImage")
         pictureInput = PictureInput(image: self.currentImage)
         imageProcess()
     }

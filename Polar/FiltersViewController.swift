@@ -29,7 +29,7 @@ class FiltersViewController: UIViewController, UICollectionViewDataSource, UICol
         self.presetsCollectionView?.delegate = self
         self.presetsCollectionView?.dataSource = self
     
-        self.currentImage = UIImage(named: "testImage")
+//        self.currentImage = UIImage(named: "testImage")
         self.currentImageView?.image = self.currentImage
         
         self.presetItems = configureItems()
