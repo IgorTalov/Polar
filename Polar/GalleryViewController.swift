@@ -66,12 +66,20 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     
         let image = self.photosFromAlbum.object(at: indexPath.row) as! UIImage
         
-//        cell.backgroundColor = UIColor.orange
         cell.imageView.image = image
         
         return cell
     }
 
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        let offset: CGFloat = 4
+        let size = CGSize(width: self.view.frame.size.width - 2 * offset, height: 300)
+        
+        return size
+    }
+    
+    
     // MARK: UICollectionViewDelegate
 
      func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {

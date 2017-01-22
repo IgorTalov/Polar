@@ -205,8 +205,12 @@ class CameraViewController: UIViewController {
                             
                             let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageBuffer)
                             let image = UIImage(data: imageData!)
+                            var imageSave = UIImage()
+                            let deviceOrientation = UIDevice.current.orientation
                             
-                            self.photoAlbum.saveImage(image: image!)
+                            imageSave = self.setOrintationForImage(orinetation: deviceOrientation, image: image!)
+                            
+                            self.photoAlbum.saveImage(image: imageSave)
                         }
                     })
                 }
@@ -222,8 +226,12 @@ class CameraViewController: UIViewController {
                             
                             let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageBuffer)
                             let image = UIImage(data: imageData!)
-                            //                        let deviceOrientation = UIDevice.current.orientation
-                            self.photoAlbum.saveImage(image: image!)
+                            var imageSave = UIImage()
+                            let deviceOrientation = UIDevice.current.orientation
+                            
+                            imageSave = self.setOrintationForImage(orinetation: deviceOrientation, image: image!)
+                            
+                            self.photoAlbum.saveImage(image: imageSave)
                         }
                     })
                 }
@@ -231,6 +239,29 @@ class CameraViewController: UIViewController {
                 print("output is not captureOutput")
             }
         }
+    }
+    
+    func setOrintationForImage(orinetation: UIDeviceOrientation, image: UIImage) -> UIImage {
+
+        var imageS = UIImage()
+        
+        switch orinetation.rawValue {
+        case 1:
+           imageS = UIImage(cgImage: image.cgImage!, scale: 1.0, orientation: .right)
+            break
+        case 2:
+           imageS = UIImage(cgImage: image.cgImage!, scale: 1.0, orientation: .left)
+            break
+        case 3:
+           imageS = UIImage(cgImage: image.cgImage!, scale: 1.0, orientation: .up)
+            break
+        case 4:
+           imageS = UIImage(cgImage: image.cgImage!, scale: 1.0, orientation: .down)
+        default:
+            print(" -> Error al reconocer device orientation")
+        }
+        
+        return imageS
     }
     
     //MARK: Add Grid Lines

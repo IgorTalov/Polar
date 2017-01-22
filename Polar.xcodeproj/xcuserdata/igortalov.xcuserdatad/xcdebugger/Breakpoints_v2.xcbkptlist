@@ -36,7 +36,7 @@
                   moduleName = "Polar"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/igortalov/Documents/Projects/iOSVKCourse/Polar/Polar/FiltersViewController.swift"
-                  timestampString = "506799620.638137"
+                  timestampString = "506803578.744215"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "95"
@@ -51,7 +51,7 @@
                   moduleName = "Polar"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/igortalov/Documents/Projects/iOSVKCourse/Polar/Polar/FiltersViewController.swift"
-                  timestampString = "506799620.641084"
+                  timestampString = "506803578.74765"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "95"
@@ -106,22 +106,6 @@
             startingLineNumber = "51"
             endingLineNumber = "51"
             landmarkName = "imageProcess()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Polar/GalleryViewController.swift"
-            timestampString = "506799619.463304"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
