@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9Iz-y8-4Zh">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -156,13 +156,127 @@
             </objects>
             <point key="canvasLocation" x="1095" y="137.32394366197184"/>
         </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="bJl-NN-1hB">
+            <objects>
+                <viewController id="9Iz-y8-4Zh" customClass="CameraViewController" customModule="Polar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9pa-0n-2t5"/>
+                        <viewControllerLayoutGuide type="bottom" id="DZ9-Bl-Tbp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yv0-o9-BiR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCy-fa-f2P">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbt-Xe-oT5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tp3-BK-cbB">
+                                        <rect key="frame" x="274" y="19" width="28" height="28"/>
+                                        <state key="normal" image="Close"/>
+                                        <connections>
+                                            <action selector="closeController:" destination="9Iz-y8-4Zh" eventType="touchUpInside" id="pwl-op-vZ9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucm-nE-FgB">
+                                        <rect key="frame" x="29" y="18" width="16" height="28"/>
+                                        <state key="normal" image="Flash"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkA-5e-3LP">
+                                        <rect key="frame" x="142" y="19" width="36" height="26"/>
+                                        <state key="normal" image="Change Camera"/>
+                                        <connections>
+                                            <action selector="changeCamera:" destination="9Iz-y8-4Zh" eventType="touchUpInside" id="CGq-3c-ay1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ucm-nE-FgB" firstAttribute="top" secondItem="qbt-Xe-oT5" secondAttribute="top" constant="18" id="Crq-yp-pub"/>
+                                    <constraint firstItem="AkA-5e-3LP" firstAttribute="top" secondItem="qbt-Xe-oT5" secondAttribute="top" constant="19" id="NC7-LF-iWH"/>
+                                    <constraint firstAttribute="bottom" secondItem="tp3-BK-cbB" secondAttribute="bottom" constant="9" id="SAx-dq-INd"/>
+                                    <constraint firstAttribute="bottom" secondItem="AkA-5e-3LP" secondAttribute="bottom" constant="11" id="cbY-P9-ySg"/>
+                                    <constraint firstAttribute="bottom" secondItem="ucm-nE-FgB" secondAttribute="bottom" constant="10" id="gd7-Qe-qdj"/>
+                                    <constraint firstItem="AkA-5e-3LP" firstAttribute="leading" secondItem="ucm-nE-FgB" secondAttribute="trailing" constant="97" id="muO-dN-sU0"/>
+                                    <constraint firstItem="ucm-nE-FgB" firstAttribute="leading" secondItem="qbt-Xe-oT5" secondAttribute="leading" constant="29" id="pzr-uI-MUW"/>
+                                    <constraint firstItem="tp3-BK-cbB" firstAttribute="leading" secondItem="AkA-5e-3LP" secondAttribute="trailing" constant="96" id="tXU-1l-twi"/>
+                                    <constraint firstAttribute="trailing" secondItem="tp3-BK-cbB" secondAttribute="trailing" constant="18" id="vlm-Dc-h6i"/>
+                                    <constraint firstItem="tp3-BK-cbB" firstAttribute="top" secondItem="qbt-Xe-oT5" secondAttribute="top" constant="19" id="zHp-ve-NFK"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mYM-Vw-cjg">
+                                <rect key="frame" x="0.0" y="448" width="320" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCF-VH-vcI">
+                                        <rect key="frame" x="123" y="23" width="75" height="75"/>
+                                        <state key="normal" image="Shutter Button"/>
+                                        <connections>
+                                            <action selector="shutterPressedDown:" destination="9Iz-y8-4Zh" eventType="touchUpInside" id="Elu-kn-QQJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLy-wM-kxU">
+                                        <rect key="frame" x="261" y="49" width="28" height="22"/>
+                                        <state key="normal" image="3 dots"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmX-Ed-jdt">
+                                        <rect key="frame" x="48" y="46" width="28" height="28"/>
+                                        <state key="normal" image="Smile"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="cmX-Ed-jdt" secondAttribute="bottom" constant="46" id="0jN-06-bFK"/>
+                                    <constraint firstItem="nCF-VH-vcI" firstAttribute="leading" secondItem="cmX-Ed-jdt" secondAttribute="trailing" constant="47" id="Mne-Pj-ThI"/>
+                                    <constraint firstAttribute="bottom" secondItem="nCF-VH-vcI" secondAttribute="bottom" constant="22" id="NVX-vX-mmd"/>
+                                    <constraint firstItem="cmX-Ed-jdt" firstAttribute="top" secondItem="mYM-Vw-cjg" secondAttribute="top" constant="46" id="S3h-yO-phL"/>
+                                    <constraint firstAttribute="bottom" secondItem="VLy-wM-kxU" secondAttribute="bottom" constant="49" id="XM6-YA-l0z"/>
+                                    <constraint firstAttribute="trailing" secondItem="nCF-VH-vcI" secondAttribute="trailing" constant="122" id="ZLH-PF-EU1"/>
+                                    <constraint firstItem="nCF-VH-vcI" firstAttribute="top" secondItem="mYM-Vw-cjg" secondAttribute="top" constant="23" id="bho-cw-HQB"/>
+                                    <constraint firstItem="cmX-Ed-jdt" firstAttribute="leading" secondItem="mYM-Vw-cjg" secondAttribute="leading" constant="48" id="but-XO-DlD"/>
+                                    <constraint firstItem="VLy-wM-kxU" firstAttribute="top" secondItem="mYM-Vw-cjg" secondAttribute="top" constant="49" id="gjG-GT-06j"/>
+                                    <constraint firstItem="nCF-VH-vcI" firstAttribute="leading" secondItem="mYM-Vw-cjg" secondAttribute="leading" constant="123" id="mea-L4-Xit"/>
+                                    <constraint firstAttribute="trailing" secondItem="VLy-wM-kxU" secondAttribute="trailing" constant="31" id="xLU-Bz-pXg"/>
+                                    <constraint firstItem="VLy-wM-kxU" firstAttribute="leading" secondItem="nCF-VH-vcI" secondAttribute="trailing" constant="63" id="zbD-j8-D4Y"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mYM-Vw-cjg" firstAttribute="trailing" secondItem="dCy-fa-f2P" secondAttribute="trailing" id="2UA-S4-XzZ"/>
+                            <constraint firstItem="qbt-Xe-oT5" firstAttribute="top" secondItem="dCy-fa-f2P" secondAttribute="top" id="9zV-ge-fVP"/>
+                            <constraint firstItem="qbt-Xe-oT5" firstAttribute="leading" secondItem="mYM-Vw-cjg" secondAttribute="leading" id="BiW-Zi-BHx"/>
+                            <constraint firstItem="mYM-Vw-cjg" firstAttribute="leading" secondItem="dCy-fa-f2P" secondAttribute="leading" id="D8t-BG-q76"/>
+                            <constraint firstItem="DZ9-Bl-Tbp" firstAttribute="top" secondItem="dCy-fa-f2P" secondAttribute="bottom" id="EXa-di-3Rz"/>
+                            <constraint firstItem="dCy-fa-f2P" firstAttribute="top" secondItem="Yv0-o9-BiR" secondAttribute="top" id="MLk-ir-Jts"/>
+                            <constraint firstItem="DZ9-Bl-Tbp" firstAttribute="top" secondItem="mYM-Vw-cjg" secondAttribute="bottom" id="TaG-2K-XVg"/>
+                            <constraint firstItem="mYM-Vw-cjg" firstAttribute="top" secondItem="9pa-0n-2t5" secondAttribute="bottom" constant="428" id="V85-8r-2mb"/>
+                            <constraint firstItem="dCy-fa-f2P" firstAttribute="leading" secondItem="Yv0-o9-BiR" secondAttribute="leading" id="Wu8-B4-1BF"/>
+                            <constraint firstAttribute="trailing" secondItem="dCy-fa-f2P" secondAttribute="trailing" id="cWz-zR-s9l"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonsView" destination="mYM-Vw-cjg" id="zfG-SB-9Mh"/>
+                        <outlet property="previewView" destination="dCy-fa-f2P" id="ijF-Mz-mJZ"/>
+                        <outlet property="shutterButton" destination="nCF-VH-vcI" id="Foh-j7-XRS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eUg-pN-aiz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2257.5" y="137.32394366197184"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="3 dots" width="28" height="7"/>
         <image name="Bright" width="25" height="25"/>
+        <image name="Change Camera" width="36" height="26"/>
         <image name="Close" width="28" height="28"/>
+        <image name="Flash" width="16" height="28"/>
         <image name="Focus" width="25" height="25"/>
         <image name="HDR off" width="25" height="13"/>
         <image name="ISO" width="30" height="17"/>
+        <image name="Shutter Button" width="81" height="81"/>
         <image name="Smile" width="18" height="18"/>
         <image name="auto white balance" width="25" height="17"/>
         <image name="cycle" width="21" height="21"/>

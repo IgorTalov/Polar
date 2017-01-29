@@ -14,7 +14,7 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var shutterButton: UIButton!
     @IBOutlet weak var reverseButton: UIButton!
     @IBOutlet weak var previewView: UIView?
-    @IBOutlet weak var headerView: UIView?
+//    @IBOutlet weak var headerView: UIView?
     @IBOutlet weak var actionsView: UIView?
     @IBOutlet weak var HDRButton: UIButton?
     @IBOutlet weak var buttonsView: UIView?
@@ -44,7 +44,8 @@ class CameraViewController: UIViewController {
         self.shutterButton.layer.borderColor = UIColor.darkGray.cgColor
         self.shutterButton.layer.borderWidth = 3.0
         
-        configureGrid()
+        setShutterView()
+//        configureGrid()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,14 +53,24 @@ class CameraViewController: UIViewController {
         
     }
     
-    func configureGrid() {
+    func setShutterView() {
         
-        let rect = CGRect(x: 0.0, y: (self.headerView?.frame.size.height)!, width: self.view.bounds.size.width, height: self.view.bounds.size.height - CGFloat((self.headerView?.frame.size.height)! + (self.actionsView?.frame.size.height)!))
-        
-        self.gridView = GridView(frame: rect, numberOfColumns: 3, numberOfRows: 3)
-        self.previewView?.addSubview(self.gridView)
-        self.showGrid = true
+        var gradientLayer = CAGradientLayer()
+        gradientLayer.frame = (self.buttonsView?.bounds)!
+        gradientLayer.colors = [UIColor.lightGray.cgColor, UIColor.black.cgColor]
+        gradientLayer.opacity = 0.48
+        self.buttonsView?.backgroundColor = UIColor.clear
+        self.buttonsView?.layer.addSublayer(gradientLayer)
     }
+    
+//    func configureGrid() {
+    
+//        let rect = CGRect(x: 0.0, y: 0.0, width: self.view.bounds.size.width, height: self.view.bounds.size.height - CGFloat((self.headerView?.frame.size.height)! + (self.actionsView?.frame.size.height)!))
+//        
+//        self.gridView = GridView(frame: rect, numberOfColumns: 3, numberOfRows: 3)
+//        self.previewView?.addSubview(self.gridView)
+//        self.showGrid = true
+//    }
     
     func configureSession() {
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
