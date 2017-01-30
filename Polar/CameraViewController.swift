@@ -180,15 +180,20 @@ class CameraViewController: UIViewController {
     
     //MARK: Configure Touch Action
     let screenWidth = UIScreen.main.bounds.size.width
+    let screenHeight = UIScreen.main.bounds.size.height
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let anyTouch = touches.first
         let touchPercent = (anyTouch?.location(in: self.view).x)! / screenWidth
+        let touchPercent2 = (anyTouch?.location(in: self.view).y)! / screenHeight
+        setISOTo(value: Float(touchPercent2))
         focusTo(value: touchPercent)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let anyTouch = touches.first
         let touchPercent = (anyTouch?.location(in: self.view).x)! / screenWidth
+        let touchPercent2 = (anyTouch?.location(in: self.view).y)! / screenHeight
+        setISOTo(value: Float(touchPercent2))
         focusTo(value: touchPercent)
     }
     
