@@ -10,7 +10,21 @@ import UIKit
 
 class GalleryViewCell: UICollectionViewCell {
  
-    @IBOutlet weak var pictureImageView: UIImageView!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    var imageView: UIImageView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        let rect = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+        
+        imageView = UIImageView(frame: rect)
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        self.backgroundView?.backgroundColor = UIColor.clear
+        self.contentView.addSubview(imageView)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 }

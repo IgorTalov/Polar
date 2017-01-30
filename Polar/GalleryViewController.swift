@@ -9,19 +9,62 @@
 import UIKit
 
 private let reuseIdentifier = "PictureCell"
+private let segueEditIdentifier = "goToEditSegue"
+private let segueCameraIdentifier = "showCameraSegue"
 
-class GalleryViewController: UICollectionViewController {
-
+class GalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    //Outlets
+    @IBOutlet weak var photoCollectionView: UICollectionView?
+    @IBOutlet weak var addButton: UIBarButtonItem?
+    @IBOutlet weak var cameraButton: UIBarButtonItem?
+    @IBOutlet weak var backgroundImageView: UIImageView?
+    
+    var photoAlbum = PolarAlbum()
+    var photosFromAlbum = NSMutableArray()
+    var selectedIndex: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.lightGray
+        setNavigationBar()
+        
+        self.photoCollectionView!.register(GalleryViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        reloadDisplay()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        reloadDisplay()
+        setBackgroundImage()
+    }
+    
+    func setNavigationBar() {
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.navigationController?.navigationBar.alpha = 0.4
+    }
+    
+    func setBackgroundImage() {
+        let image: UIImage = photoAlbum.showImages().lastObject as! UIImage
+        self.backgroundImageView?.image = image
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.backgroundImageView?.addSubview(blurEffectView)
+    }
+    
+    //MARK: Reload Display
+    func reloadDisplay() {
+        self.photosFromAlbum = photoAlbum.showImages()
+        DispatchQueue.main.async {
+            self.photoCollectionView?.reloadData()
+            self.photoCollectionView?.performBatchUpdates(nil, completion: nil)
+        }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,52 +74,57 @@ class GalleryViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+     func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return photosFromAlbum.count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GalleryViewCell
     
-        // Configure the cell
-    
+        let image = self.photosFromAlbum.object(at: indexPath.row) as! UIImage
+        
+        cell.imageView.image = image
+        
         return cell
     }
 
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        let offset: CGFloat = 4
+        let size = CGSize(width: self.view.frame.size.width - 2 * offset, height: 300)
+        
+        return size
+    }
+    
+    
     // MARK: UICollectionViewDelegate
-
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-
-
     
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-
-
-    
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
+        performSegue(withIdentifier: segueEditIdentifier, sender: self)
     }
  
-
+    //MARK: Actions
+    
+    @IBAction func showCameracontroller (_ sender: UIBarButtonItem) {
+        let cameraViewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CameraViewController") as UIViewController
+        self.present(cameraViewController, animated: true, completion: nil)
+    }
+    
+    //MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == segueEditIdentifier {
+            let editViewController = segue.destination as! FiltersViewController
+            let image = self.photosFromAlbum.object(at: selectedIndex) as! UIImage
+            editViewController.currentImage = image
+        }
+    }
 }
