@@ -14,10 +14,10 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var shutterButton: UIButton!
     @IBOutlet weak var reverseButton: UIButton!
     @IBOutlet weak var previewView: UIView?
-//    @IBOutlet weak var headerView: UIView?
     @IBOutlet weak var actionsView: UIView?
     @IBOutlet weak var HDRButton: UIButton?
     @IBOutlet weak var buttonsView: UIView?
+    @IBOutlet weak var imageSettingsView: UIView?
     
     let captureSession = AVCaptureSession()
     
@@ -31,6 +31,7 @@ class CameraViewController: UIViewController {
     var isLockForTouch: Bool = false
     var timeForUnlock: CGFloat = 0.7
     var showGrid : Bool = false
+    var showSettingView: Bool = false
     var isHDR : Bool = false
     var photoAlbum = PolarAlbum()
     
@@ -39,13 +40,8 @@ class CameraViewController: UIViewController {
         super.viewDidLoad()
         
         configureSession()
-
-        self.shutterButton.layer.cornerRadius = self.shutterButton.bounds.size.width / 2
-        self.shutterButton.layer.borderColor = UIColor.darkGray.cgColor
-        self.shutterButton.layer.borderWidth = 3.0
         
         setShutterView()
-//        configureGrid()
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,16 +57,13 @@ class CameraViewController: UIViewController {
         gradientLayer.opacity = 0.48
         self.buttonsView?.backgroundColor = UIColor.clear
         self.buttonsView?.layer.addSublayer(gradientLayer)
+        
+        //Set ImageSetting View
+        let y = self.view.frame.size.height - self.view.frame.height
+//        let rect = CGRect(x: 0, y: y + (self.imageSettingsView?.frame.size.height)!, width: (self.imageSettingsView?.frame.size.width)!, height: (self.imageSettingsView?.frame.size.height)!)
+//        self.imageSettingsView?.frame = rect
+        self.imageSettingsView?.alpha = 0.0
     }
-    
-//    func configureGrid() {
-    
-//        let rect = CGRect(x: 0.0, y: 0.0, width: self.view.bounds.size.width, height: self.view.bounds.size.height - CGFloat((self.headerView?.frame.size.height)! + (self.actionsView?.frame.size.height)!))
-//        
-//        self.gridView = GridView(frame: rect, numberOfColumns: 3, numberOfRows: 3)
-//        self.previewView?.addSubview(self.gridView)
-//        self.showGrid = true
-//    }
     
     func configureSession() {
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
@@ -290,7 +283,6 @@ class CameraViewController: UIViewController {
     //MARK: Actions
     @IBAction func shutterPressedDown(_ sender: UIButton)
     {
-        //TODO: Magic
         takePhoto()
     }
     
@@ -308,11 +300,35 @@ class CameraViewController: UIViewController {
     {
         setISOTo(value: _sender.value)
     }
+    
+    @IBAction func showCaptureSettingsView(_sender: UIButton) {
+        
+        let animateDuration: TimeInterval = 1
+        
+        if !showSettingView {
+            self.showSettingView = true
+            
+            UIView.animateKeyframes(withDuration: animateDuration, delay: 0, options: UIViewKeyframeAnimationOptions.allowUserInteraction, animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: animateDuration / 2, animations: {
+                    self.imageSettingsView?.alpha = 1.0
+                    self.imageSettingsView?.frame.origin.y = (self.imageSettingsView?.frame.origin.y)! + (self.imageSettingsView?.frame.size.height)!
+                })
+            })
+        } else {
+            self.showSettingView = false
+            UIView.animate(withDuration: animateDuration, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: {
+                self.imageSettingsView?.alpha = 0.0
+                self.imageSettingsView?.frame.origin.y = (self.imageSettingsView?.frame.origin.y)! + (self.imageSettingsView?.frame.size.height)!
+            })
+        }
+    }
+    
     //MARK: Grid Action
     @IBAction func addGridLines(_sender: UIButton)
     {
         addGridLines()
     }
+    
     //MARK:Set HDR
     @IBAction func setHDR(_sender: UIButton)
     {

@@ -12,7 +12,7 @@
         <!--Camera View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="CameraViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="CameraViewController" customModule="Polar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CameraViewController" customModule="Polar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -159,7 +159,7 @@
         <!--Camera View Controller-->
         <scene sceneID="bJl-NN-1hB">
             <objects>
-                <viewController id="9Iz-y8-4Zh" customClass="CameraViewController" customModule="Polar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CameraViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9Iz-y8-4Zh" customClass="CameraViewController" customModule="Polar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9pa-0n-2t5"/>
                         <viewControllerLayoutGuide type="bottom" id="DZ9-Bl-Tbp"/>
@@ -168,6 +168,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CD4-vS-Egd">
+                                <rect key="frame" x="0.0" y="410" width="320" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIm-x1-98R">
+                                        <rect key="frame" x="148" y="8" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Focus"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBG-zG-1AS">
+                                        <rect key="frame" x="9" y="8" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Bright"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0R-oS-DYD">
+                                        <rect key="frame" x="78" y="10" width="25" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="auto white balance"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ask-Md-SvB">
+                                        <rect key="frame" x="282" y="9" width="30" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="ISO"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENj-eQ-xQY">
+                                        <rect key="frame" x="217" y="10" width="25" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="HDR off"/>
+                                        <connections>
+                                            <action selector="setHDRWith_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M3X-pU-6JI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCy-fa-f2P">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </view>
@@ -219,6 +253,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLy-wM-kxU">
                                         <rect key="frame" x="261" y="49" width="28" height="22"/>
                                         <state key="normal" image="3 dots"/>
+                                        <connections>
+                                            <action selector="showCaptureSettingsViewWith_sender:" destination="9Iz-y8-4Zh" eventType="touchUpInside" id="1Fg-NJ-Iyv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmX-Ed-jdt">
                                         <rect key="frame" x="48" y="46" width="28" height="28"/>
@@ -258,6 +295,7 @@
                     </view>
                     <connections>
                         <outlet property="buttonsView" destination="mYM-Vw-cjg" id="zfG-SB-9Mh"/>
+                        <outlet property="imageSettingsView" destination="CD4-vS-Egd" id="SVS-lp-jqQ"/>
                         <outlet property="previewView" destination="dCy-fa-f2P" id="ijF-Mz-mJZ"/>
                         <outlet property="shutterButton" destination="nCF-VH-vcI" id="Foh-j7-XRS"/>
                     </connections>

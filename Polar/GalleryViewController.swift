@@ -19,16 +19,20 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var addButton: UIBarButtonItem?
     @IBOutlet weak var cameraButton: UIBarButtonItem?
     @IBOutlet weak var backgroundImageView: UIImageView?
+    @IBOutlet weak var tabBarView: UIView?
+    
     
     var photoAlbum = PolarAlbum()
     var photosFromAlbum = NSMutableArray()
     var selectedIndex: Int = 0
+    var selectedImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.lightGray
         setNavigationBar()
+        setTabBarView()
         
         self.photoCollectionView!.register(GalleryViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
@@ -39,6 +43,11 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         super.viewDidAppear(animated)
         reloadDisplay()
         setBackgroundImage()
+    }
+    
+    func setTabBarView() {
+        self.tabBarView?.backgroundColor = UIColor.black
+        self.tabBarView?.layer.opacity = 0.8
     }
     
     func setNavigationBar() {
@@ -63,24 +72,19 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
             self.photoCollectionView?.reloadData()
             self.photoCollectionView?.performBatchUpdates(nil, completion: nil)
         }
-
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: UICollectionViewDataSource
 
      func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
      func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return photosFromAlbum.count
     }
 
@@ -93,32 +97,32 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
         
         return cell
     }
-
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
-        let offset: CGFloat = 4
-        let size = CGSize(width: self.view.frame.size.width - 2 * offset, height: 300)
-        
-        return size
-    }
-    
     
     // MARK: UICollectionViewDelegate
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
-        performSegue(withIdentifier: segueEditIdentifier, sender: self)
+        
+        self.selectedImage = self.photosFromAlbum.object(at: indexPath.row) as? UIImage
+        
+        let cell = collectionView.cellForItem(at: indexPath) as! GalleryViewCell
+        
+        if cell.isSelected == true {
+            cell.isSelected = false
+            cell.layer.borderColor = UIColor.yellow.cgColor
+            cell.layer.borderWidth = 3.0
+        } else {
+            cell.isSelected = true
+            cell.layer.borderColor = UIColor.clear.cgColor
+            cell.layer.borderWidth = 3.0
+        }
     }
  
     //MARK: Actions
-    
     @IBAction func showCameracontroller (_ sender: UIBarButtonItem) {
         let cameraViewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CameraViewController") as UIViewController
         self.present(cameraViewController, animated: true, completion: nil)
     }
     
     //MARK: Navigation
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == segueEditIdentifier {

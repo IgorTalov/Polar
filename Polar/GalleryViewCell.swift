@@ -18,7 +18,9 @@ class GalleryViewCell: UICollectionViewCell {
         let rect = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
         
         imageView = UIImageView(frame: rect)
-        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.layer.cornerRadius = 5
+        imageView.layer.masksToBounds = true
         self.backgroundView?.backgroundColor = UIColor.clear
         self.contentView.addSubview(imageView)
     }
