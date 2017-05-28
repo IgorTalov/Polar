@@ -120,6 +120,8 @@ class FilterCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        self.layer.cornerRadius = 5
+        self.layer.masksToBounds = true
         setupViews()
     }
     
