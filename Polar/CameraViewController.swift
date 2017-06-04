@@ -51,7 +51,7 @@ class CameraViewController: UIViewController {
     
     func setShutterView() {
         
-        var gradientLayer = CAGradientLayer()
+        let gradientLayer = CAGradientLayer()
         gradientLayer.frame = (self.buttonsView?.bounds)!
         gradientLayer.colors = [UIColor.lightGray.cgColor, UIColor.black.cgColor]
         gradientLayer.opacity = 0.48
@@ -59,7 +59,7 @@ class CameraViewController: UIViewController {
         self.buttonsView?.layer.addSublayer(gradientLayer)
         
         //Set ImageSetting View
-        let y = self.view.frame.size.height - self.view.frame.height
+//        let y = self.view.frame.size.height - self.view.frame.height
 //        let rect = CGRect(x: 0, y: y + (self.imageSettingsView?.frame.size.height)!, width: (self.imageSettingsView?.frame.size.width)!, height: (self.imageSettingsView?.frame.size.height)!)
 //        self.imageSettingsView?.frame = rect
         self.imageSettingsView?.alpha = 0.0

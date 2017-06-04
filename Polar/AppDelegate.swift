@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let vc = EditViewController()
+        let vc = ViewController()
         window?.rootViewController = vc
         
         application.statusBarStyle = .lightContent
