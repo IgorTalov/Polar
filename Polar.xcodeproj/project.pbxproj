@@ -17,6 +17,7 @@
 		EE2170511DCC90240082D8FD /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE21704E1DCC90240082D8FD /* CoreImage.framework */; };
 		EE34B5861E07064000B4F60B /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE9190C01E0701940085EAF4 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE4010BA1DE38D8900D98D95 /* GalleryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */; };
+		EE50FA571EEF336E0085F005 /* ShutterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE50FA561EEF336E0085F005 /* ShutterButton.swift */; };
 		EE5BBE761EE304570064E565 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5BBE751EE304570064E565 /* CameraController.swift */; };
 		EE60CC641EE464CE00485A9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE60CC631EE464CE00485A9F /* ViewController.swift */; };
 		EE9190C31E07019D0085EAF4 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9190C01E0701940085EAF4 /* GPUImage.framework */; };
@@ -84,6 +85,7 @@
 		EE21704D1DCC90240082D8FD /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		EE21704E1DCC90240082D8FD /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		EE4010B91DE38D8900D98D95 /* GalleryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewCell.swift; sourceTree = "<group>"; };
+		EE50FA561EEF336E0085F005 /* ShutterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShutterButton.swift; sourceTree = "<group>"; };
 		EE5BBE751EE304570064E565 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		EE60CC631EE464CE00485A9F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EE9190BA1E0701940085EAF4 /* GPUImage-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "GPUImage-iOS.xcodeproj"; path = "framework/GPUImage-iOS.xcodeproj"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				EEE1C18F1DE3919E00988485 /* PresetViewCell.swift */,
 				EE924A001E1D172D008C9235 /* GridView.swift */,
 				EED52BB31EDB116000C81BDF /* MenuBar.swift */,
+				EE50FA561EEF336E0085F005 /* ShutterButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				EE21703C1DC935080082D8FD /* Polar.xcdatamodeld in Sources */,
 				EED52BAF1EDB093B00C81BDF /* EditViewController.swift in Sources */,
 				EEBCE23A1E33BEBA00021F45 /* PolarAlbum.swift in Sources */,
+				EE50FA571EEF336E0085F005 /* ShutterButton.swift in Sources */,
 				EE60CC641EE464CE00485A9F /* ViewController.swift in Sources */,
 				EED52BB21EDB0AEE00C81BDF /* Extensions.swift in Sources */,
 				EE2170341DC935080082D8FD /* AppDelegate.swift in Sources */,

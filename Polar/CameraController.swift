@@ -15,22 +15,30 @@ class CameraController: NSObject {
     
     var frontCamera: AVCaptureDevice?
     var rearCamera: AVCaptureDevice?
+    var currentCaptureDevice: AVCaptureDevice?
     
     var currentCameraPosition: CameraPosition?
+    var focusMode: CameraControllerFocusMode?
     var frontCameraInput: AVCaptureDeviceInput?
     var rearCameraInput: AVCaptureDeviceInput?
     
     var photoOutput: AVCaptureStillImageOutput?
+    var currentOutput: AVCaptureStillImageOutput?
+    
     var previewLayer: AVCaptureVideoPreviewLayer?
     
     var flashMode: AVCaptureFlashMode?
+    
+    var photoComplitionBlock: ((UIImage?, Error?) -> Void)?
 }
 
 extension CameraController {
     func prepare(complitionHandler: @escaping (Error?) -> Void) {
         func createCaptureSession() {
             self.captureSession = AVCaptureSession()
+            self.captureSession?.sessionPreset = AVCaptureSessionPresetPhoto
             self.flashMode = .off
+            self.focusMode = .auto
         }
         func configureCaptureDevices() throws {
             
@@ -45,7 +53,7 @@ extension CameraController {
                         self.rearCamera = device as AVCaptureDevice!
                         
                         try device.lockForConfiguration()
-                        device.focusMode = .continuousAutoFocus
+                        device.focusMode = .autoFocus
                         device.unlockForConfiguration()
                     }
                 }
@@ -63,6 +71,7 @@ extension CameraController {
                 }
                 
                 self.currentCameraPosition = .rear
+                self.currentCaptureDevice = self.rearCamera
             } else if let frontCamera = self.frontCamera {
              
                 self.frontCameraInput = try AVCaptureDeviceInput(device: frontCamera)
@@ -72,6 +81,7 @@ extension CameraController {
                 }
                 
                 self.currentCameraPosition = .front
+                self.currentCaptureDevice = self.frontCamera
             } else {
                throw CameraControllerError.noCamerasAvailable
             }
@@ -143,6 +153,7 @@ extension CameraController {
             if captureSession.canAddInput(self.frontCameraInput!) {
                 captureSession.addInput(self.frontCameraInput!)
                 
+                self.currentCaptureDevice = self.frontCamera
                 self.currentCameraPosition = .front
             }
                 
@@ -160,6 +171,7 @@ extension CameraController {
             if captureSession.canAddInput(self.rearCameraInput!) {
                 captureSession.addInput(self.rearCameraInput!)
                 
+                self.currentCaptureDevice = self.rearCamera
                 self.currentCameraPosition = .rear
             }
                 
@@ -175,6 +187,58 @@ extension CameraController {
         }
 
         captureSession.commitConfiguration()
+    }
+    
+    func captureImage(completion: @escaping (UIImage?, Error?) -> Void){
+        if let captureSession = captureSession, captureSession.isRunning {
+            if let output = self.photoOutput {
+                DispatchQueue.global().async {
+                    let connection = output.connection(withMediaType: AVMediaTypeVideo)
+                    output.captureStillImageAsynchronously(from: connection, completionHandler: { (imageBuffer, error) in
+                        if imageBuffer != nil {
+                            
+                            let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageBuffer)
+                            let image = UIImage(data: imageData!)
+                            
+                            let deviceOrientation = UIDevice.current.orientation
+                            
+                            let imageSave = self.setOrintationForImage(orinetation: deviceOrientation, image: image!) as UIImage!
+                            
+                            completion(imageSave, nil)
+//                            self.photoAlbum.saveImage(image: imageSave)
+                        }
+                    })
+                }
+            }
+        } else {
+            completion(nil, CameraControllerError.unknown)
+        }
+    }
+}
+
+extension CameraController {
+    func setOrintationForImage(orinetation: UIDeviceOrientation, image: UIImage) -> UIImage {
+        
+        var imageS = UIImage()
+        
+        switch orinetation.rawValue {
+        case 1:
+            imageS = UIImage(cgImage: image.cgImage!, scale: 1.0, orientation: .right)
+            break
+        case 2:
+            imageS = UIImage(cgImage: image.cgImage!, scale: 1.0, orientation: .left)
+            break
+        case 3:
+            imageS = UIImage(cgImage: image.cgImage!, scale: 1.0, orientation: .up)
+            break
+        case 4:
+            imageS = UIImage(cgImage: image.cgImage!, scale: 1.0, orientation: .down)
+            break
+        default:
+            print(" -> Error al reconocer device orientation")
+        }
+        
+        return imageS
     }
 }
 
@@ -192,4 +256,41 @@ extension CameraController {
         case front
         case rear
     }
+    
+    public enum CameraControllerFocusMode {
+        case auto
+        case manual
+    }
+}
+
+extension CameraController {
+    
+    func setupFocusTo(value: CGFloat) { }
+    
+    func setupFocusForPoint(point: CGPoint, inView: UIView) {
+        
+        let focus_x = point.x / inView.frame.size.width
+        let focus_y = point.y / inView.frame.size.height
+        
+        if let captureDevice = self.currentCaptureDevice {
+            if (captureDevice.isFocusModeSupported(.autoFocus) && captureDevice.isFocusPointOfInterestSupported) {
+                do {
+                    try captureDevice.lockForConfiguration()
+                    captureDevice.focusMode = .autoFocus
+                    captureDevice.focusPointOfInterest = CGPoint(x: focus_x, y: focus_y)
+                    
+                    if (captureDevice.isExposureModeSupported(.autoExpose) && captureDevice.isExposurePointOfInterestSupported) {
+                        captureDevice.exposureMode = .autoExpose;
+                        captureDevice.exposurePointOfInterest = CGPoint(x: focus_x, y: focus_y);
+                    }
+                    
+                    captureDevice.unlockForConfiguration()
+                } catch {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func setupISO(value: CGFloat) { }
 }
